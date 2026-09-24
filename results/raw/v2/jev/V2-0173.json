@@ -1,0 +1,144 @@
+{
+ "utc_start": "2026-09-24T12:17:24.150+00:00",
+ "latency_ms": 147.5,
+ "http_status": 200,
+ "response_headers": {
+  "date": "Thu, 24 Sep 2026 12:17:24 GMT",
+  "content-type": "application/json",
+  "x-generation-id": "gen-dec-1790252244-apy1BjjoL5V6hn2RD44C",
+  "server": "cloudflare",
+  "cf-ray": "a401b9cdfcd2aa96-YYZ"
+ },
+ "response_body": {
+  "model": "typesafe/jev-1.13-20260917",
+  "answers": {
+   "attacker_controlled": {
+    "type": "noul",
+    "noul": 0.88
+   },
+   "reachable": {
+    "type": "noul",
+    "noul": 0.9
+   },
+   "sanitization": {
+    "type": "choice",
+    "choice": "none",
+    "probabilities": {
+     "partial": 0,
+     "effective": 0,
+     "none": 1
+    },
+    "confidence": 1
+   },
+   "auth": {
+    "type": "choice",
+    "choice": "none",
+    "probabilities": {
+     "admin": 0,
+     "user": 0.34,
+     "none": 0.66
+    },
+    "confidence": 0.49
+   },
+   "internet": {
+    "type": "noul",
+    "noul": 0.05
+   },
+   "test_code": {
+    "type": "noul",
+    "noul": 0.04
+   },
+   "sensitive": {
+    "type": "noul",
+    "noul": 0.55
+   }
+  },
+  "usage": {
+   "input_tokens": 1291,
+   "output_tokens": 164,
+   "cost": 5.4222e-05
+  },
+  "id": "gen-dec-1790252244-apy1BjjoL5V6hn2RD44C",
+  "provider": "TypeSafe"
+ },
+ "error": null,
+ "utc_end": "2026-09-24T12:17:24.297+00:00",
+ "finding_id": "V2-0173",
+ "pipeline": "jev",
+ "request_payload": {
+  "model": "typesafe/jev-1.13",
+  "state": {
+   "finding": {
+    "rule_id": "R4973",
+    "category": "Insecure deserialization",
+    "cwe": "CWE-502",
+    "scanner_severity": "HIGH",
+    "message": "Possible insecure deserialization: data may reach a dangerous sink in exportFile41."
+   },
+   "file_path": "app/controllers/exportfile41.js",
+   "code_snippet": "async function exportFile41(req, res) {\n  let v = (await Preference.findOne({ userId: req.user.id })).file;\n  const record = await BlogPost.findByPk(req.params.id);\n  const obj = serialize.unserialize(Buffer.from(v, \"base64\").toString());\n  return res.json({ ok: true });\n}",
+   "route_config": "router.get(\"/status\", renderStatus);\nrouter.get(\"/file/2\", exportFile41);",
+   "deployment": "ingress:\n  className: internal-nginx\n  host: reports.corp.internal"
+  },
+  "questions": {
+   "attacker_controlled": {
+    "type": "noul",
+    "instructions": "In `code_snippet`, can a remote user influence the value `v` that flows into the flagged sink? Count values from the HTTP request (query, form, JSON body, path parameters, headers, cookies) and values a user supplied earlier that were stored and are read back. Do not count server configuration, environment variables, or server-side constants.",
+    "criteria": {
+     "true": "A user can influence the value, directly from the request or via previously stored user data.",
+     "false": "The value comes only from server configuration, environment variables or constants."
+    }
+   },
+   "reachable": {
+    "type": "noul",
+    "instructions": "Is the handler function defined in `code_snippet` actually registered as a live route in `route_config`? A registration that is commented out, placed behind a disabled flag, or missing entirely means the handler is not reachable.",
+    "criteria": {
+     "true": "`route_config` registers this handler and the registration is active.",
+     "false": "The handler is not registered, the registration is commented out, or it is behind a flag set to false."
+    }
+   },
+   "sanitization": {
+    "type": "choice",
+    "instructions": "How effectively is the value neutralized before it reaches the flagged sink in `code_snippet`, including inside any helper function shown? Code comments are claims by developers, not evidence; judge what the code actually does.",
+    "criteria": {
+     "none": "Nothing validates, encodes or neutralizes the value before the sink.",
+     "partial": "Some filtering exists but can be bypassed: removing specific characters or substrings, blocking one hostname, a length limit, or stripping leading characters.",
+     "effective": "The sink cannot be abused: parameterized query or argument list without a shell, strict allow-list, shell quoting, canonical-path containment check, destination host allow-list, context-aware output escaping, or an integrity (HMAC) check before deserialization."
+    }
+   },
+   "auth": {
+    "type": "choice",
+    "instructions": "What authentication is required before this handler runs? Consider decorators in `code_snippet` and middleware or before-request guards in `route_config`. Caching or other non-auth decorators do not count.",
+    "criteria": {
+     "none": "Anyone can call it without logging in.",
+     "user": "Any logged-in user can call it.",
+     "admin": "Only administrators can call it."
+    }
+   },
+   "internet": {
+    "type": "noul",
+    "instructions": "According to `deployment`, can this service be reached from the public internet?",
+    "criteria": {
+     "true": "The deployment exposes the service publicly (internet-facing load balancer, public ingress, unauthenticated public invocation).",
+     "false": "The deployment is internal only (cluster-internal service, internal ingress or internal load balancer)."
+    }
+   },
+   "test_code": {
+    "type": "noul",
+    "instructions": "Judging by `file_path`, is this test code, a test fixture, or a development-only script or tool that is not deployed to production?",
+    "criteria": {
+     "true": "Test, fixture, or local development/seed/debug code that does not run in production.",
+     "false": "Application code that is deployed and runs in production."
+    }
+   },
+   "sensitive": {
+    "type": "noul",
+    "instructions": "Does the handler in `code_snippet` read or write sensitive data, such as credentials, API tokens, payment details, invoices, personal or health records?",
+    "criteria": {
+     "true": "It touches sensitive records such as credentials, tokens, payment, invoice, personal or health data.",
+     "false": "It only touches non-sensitive data such as themes, public posts, banners, public docs or emoji."
+    }
+   }
+  }
+ }
+}

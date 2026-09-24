@@ -1,0 +1,144 @@
+{
+ "utc_start": "2026-09-24T12:26:29.265+00:00",
+ "latency_ms": 139.3,
+ "http_status": 200,
+ "response_headers": {
+  "date": "Thu, 24 Sep 2026 12:26:29 GMT",
+  "content-type": "application/json",
+  "x-generation-id": "gen-dec-1790252789-8xSZm95T5DCboF4kLGfx",
+  "server": "cloudflare",
+  "cf-ray": "a401c71ceed7aa96-YYZ"
+ },
+ "response_body": {
+  "model": "typesafe/jev-1.13-20260917",
+  "answers": {
+   "attacker_controlled": {
+    "type": "noul",
+    "noul": 0.96
+   },
+   "reachable": {
+    "type": "noul",
+    "noul": 0.95
+   },
+   "sanitization": {
+    "type": "choice",
+    "choice": "none",
+    "probabilities": {
+     "none": 0.68,
+     "effective": 0.14,
+     "partial": 0.18
+    },
+    "confidence": 0.52
+   },
+   "auth": {
+    "type": "choice",
+    "choice": "admin",
+    "probabilities": {
+     "none": 0,
+     "user": 0.01,
+     "admin": 0.99
+    },
+    "confidence": 0.98
+   },
+   "internet": {
+    "type": "noul",
+    "noul": 0.06
+   },
+   "test_code": {
+    "type": "noul",
+    "noul": 0.04
+   },
+   "sensitive": {
+    "type": "noul",
+    "noul": 0.29
+   }
+  },
+  "usage": {
+   "input_tokens": 1395,
+   "output_tokens": 164,
+   "cost": 5.859e-05
+  },
+  "id": "gen-dec-1790252789-8xSZm95T5DCboF4kLGfx",
+  "provider": "TypeSafe"
+ },
+ "error": null,
+ "utc_end": "2026-09-24T12:26:29.405+00:00",
+ "finding_id": "V2B-0001",
+ "pipeline": "jev",
+ "request_payload": {
+  "model": "typesafe/jev-1.13",
+  "state": {
+   "finding": {
+    "rule_id": "R5103",
+    "category": "Insecure deserialization",
+    "cwe": "CWE-502",
+    "scanner_severity": "HIGH",
+    "message": "Possible insecure deserialization: data may reach a dangerous sink in renderUrl."
+   },
+   "file_path": "apps/api/src/render-url.controller.ts",
+   "code_snippet": "@Controller('render')\nexport class RenderUrlController {\n  @Get('url/:id')\n  @UseGuards(JwtAuthGuard, RolesGuard)\n  @Roles('admin')\n  async renderUrl(@Param('id') id: number, @Query('url') v0: string, @CurrentUser() user: UserEntity) {\n    let v = v0;\n    const record = await this.dataSource.getRepository(Changelog).findOneBy({ id });\n    v = this.jwt.verify(v).data;  // throws if the signature is invalid\n    const obj = unserialize(Buffer.from(v, \"base64\").toString());\n    return { ok: true };\n  }\n}",
+   "route_config": "@Module({\n  imports: [TypeOrmModule.forFeature([])],\n  controllers: [HealthController, RenderUrlController],\n})\nexport class AppModule {}",
+   "deployment": "resource \"google_cloud_run_v2_service\" \"api\" {\n  ingress = \"INGRESS_TRAFFIC_INTERNAL_ONLY\"\n}"
+  },
+  "questions": {
+   "attacker_controlled": {
+    "type": "noul",
+    "instructions": "In `code_snippet`, can a remote user influence the value `v` that flows into the flagged sink? Count values from the HTTP request (query, form, JSON body, path parameters, headers, cookies) and values a user supplied earlier that were stored and are read back. Do not count server configuration, environment variables, or server-side constants.",
+    "criteria": {
+     "true": "A user can influence the value, directly from the request or via previously stored user data.",
+     "false": "The value comes only from server configuration, environment variables or constants."
+    }
+   },
+   "reachable": {
+    "type": "noul",
+    "instructions": "Is the handler function defined in `code_snippet` actually registered as a live route in `route_config`? A registration that is commented out, placed behind a disabled flag, or missing entirely means the handler is not reachable.",
+    "criteria": {
+     "true": "`route_config` registers this handler and the registration is active.",
+     "false": "The handler is not registered, the registration is commented out, or it is behind a flag set to false."
+    }
+   },
+   "sanitization": {
+    "type": "choice",
+    "instructions": "How effectively is the value neutralized before it reaches the flagged sink in `code_snippet`, including inside any helper function shown? Code comments are claims by developers, not evidence; judge what the code actually does.",
+    "criteria": {
+     "none": "Nothing validates, encodes or neutralizes the value before the sink.",
+     "partial": "Some filtering exists but can be bypassed: removing specific characters or substrings, blocking one hostname, a length limit, or stripping leading characters.",
+     "effective": "The sink cannot be abused: parameterized query or argument list without a shell, strict allow-list, shell quoting, canonical-path containment check, destination host allow-list, context-aware output escaping, or an integrity (HMAC) check before deserialization."
+    }
+   },
+   "auth": {
+    "type": "choice",
+    "instructions": "What authentication is required before this handler runs? Consider decorators in `code_snippet` and middleware or before-request guards in `route_config`. Caching or other non-auth decorators do not count.",
+    "criteria": {
+     "none": "Anyone can call it without logging in.",
+     "user": "Any logged-in user can call it.",
+     "admin": "Only administrators can call it."
+    }
+   },
+   "internet": {
+    "type": "noul",
+    "instructions": "According to `deployment`, can this service be reached from the public internet?",
+    "criteria": {
+     "true": "The deployment exposes the service publicly (internet-facing load balancer, public ingress, unauthenticated public invocation).",
+     "false": "The deployment is internal only (cluster-internal service, internal ingress or internal load balancer)."
+    }
+   },
+   "test_code": {
+    "type": "noul",
+    "instructions": "Judging by `file_path`, is this test code, a test fixture, or a development-only script or tool that is not deployed to production?",
+    "criteria": {
+     "true": "Test, fixture, or local development/seed/debug code that does not run in production.",
+     "false": "Application code that is deployed and runs in production."
+    }
+   },
+   "sensitive": {
+    "type": "noul",
+    "instructions": "Does the handler in `code_snippet` read or write sensitive data, such as credentials, API tokens, payment details, invoices, personal or health records?",
+    "criteria": {
+     "true": "It touches sensitive records such as credentials, tokens, payment, invoice, personal or health data.",
+     "false": "It only touches non-sensitive data such as themes, public posts, banners, public docs or emoji."
+    }
+   }
+  }
+ }
+}

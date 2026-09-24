@@ -466,4 +466,79 @@ if fpath.exists():
     axes[1].invert_yaxis()
     axes[1].grid(axis="y", visible=False)
     save(fig, "fig11_frontier_latency_cost")
+
+# 12-13. Experiment v2: extraction from raw evidence ---------------------------------
+v2path = ROOT / "results/analysis/v2_metrics.json"
+if v2path.exists():
+    V2 = json.loads(v2path.read_text())
+    qa = V2["queue"]["all"]
+    names = [
+        ("severity_only", "Scanner severity\n(HIGH/CRITICAL)"),
+        ("regex", "Regex rules\n+ rubric"),
+        ("jev", "Jev fields\n+ rubric"),
+        ("oracle", "Perfect fields\n+ rubric (ceiling)"),
+    ]
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 3.6), sharey=True)
+    fig.subplots_adjust(wspace=0.06)
+    y = np.arange(len(names))
+    for ax, key, title, col in [
+        (axes[0], "queue", "Findings a human must review (of 450)", JEV),
+        (axes[1], "urgent_missed", f"Urgent findings missed (of {qa['oracle']['n_urgent']})", RED),
+    ]:
+        vals = [qa[k][key] for k, _ in names]
+        ax.barh(y, vals, height=0.55, color=[INK2 if k == "oracle" else col for k, _ in names], zorder=3)
+        for v, yy in zip(vals, y):
+            ax.text(v + (8 if key == "queue" else 0.6), yy, str(v), va="center", fontsize=9.5)
+        ax.set_title(title)
+        ax.grid(axis="y", visible=False)
+        ax.set_xlim(0, 480 if key == "queue" else 40)
+    axes[0].set_yticks(y, [n for _, n in names])
+    axes[0].invert_yaxis()
+    fig.text(
+        0.01,
+        -0.06,
+        "450 synthetic SAST findings with raw evidence only (code, routes, deployment, path). "
+        "Every pipeline feeds the same frozen rule. Sonnet 5 matched Jev on a 150-finding subset (not shown).",
+        fontsize=8,
+        color=INK2,
+    )
+    save(fig, "fig12_v2_human_queue")
+
+    fa = pd.read_csv(TAB / "v2_field_accuracy.csv")
+    fields = [
+        "attacker_controlled",
+        "reachable",
+        "sanitization",
+        "auth",
+        "internet",
+        "test_code",
+        "sensitive",
+    ]
+    labels = [
+        "attacker\ncontrol",
+        "reachable",
+        "sanit-\nization",
+        "auth",
+        "internet",
+        "test\ncode",
+        "sensitive\ndata",
+    ]
+    fig, axes = plt.subplots(1, 2, figsize=(13, 3.8), sharey=True)
+    fig.subplots_adjust(wspace=0.06)
+    x = np.arange(len(fields))
+    for ax, scope, title in [
+        (axes[0], "A", "Set A: idioms the regex was written for"),
+        (axes[1], "B", "Set B: unfamiliar frameworks (held out)"),
+    ]:
+        for k, (pipe, col, lab) in enumerate([("regex", B0, "Regex rules"), ("jev", JEV, "Jev")]):
+            r = fa[(fa.scope == scope) & (fa.pipeline == pipe)].iloc[0]
+            ax.bar(x + (k - 0.5) * 0.36, [r[f] for f in fields], width=0.34, color=col, label=lab, zorder=3)
+        ax.set_xticks(x, labels, fontsize=8.5)
+        ax.set_ylim(0, 1.05)
+        ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1))
+        ax.set_title(title)
+        ax.grid(axis="x", visible=False)
+    axes[0].set_ylabel("Field accuracy")
+    axes[0].legend(loc="lower center", bbox_to_anchor=(1.03, 1.1), ncol=2)
+    save(fig, "fig13_v2_field_accuracy")
 sys.exit(0)

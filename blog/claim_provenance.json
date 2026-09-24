@@ -1,10 +1,10 @@
 {
  "generated_by": "scripts/build_claim_provenance.py",
- "n_claims": 116,
+ "n_claims": 159,
  "all_verified": true,
  "claims": [
   {
-   "claim": "879 API calls",
+   "claim": "| Requests | 879 (878 + smoke), 0 failures, 0 retries |",
    "source_artifact": "results/analysis/metrics.json",
    "calculation": "M['run']['requests_total_incl_smoke']",
    "relevant_fields": "run.requests_total_incl_smoke",
@@ -1144,7 +1144,7 @@
    "text_found_in_blog": true
   },
   {
-   "claim": "cost 83 times as much",
+   "claim": "slower per decision and 25 to 83 times more expensive",
    "source_artifact": "results/analysis/frontier_metrics.json",
    "calculation": "FM['anthropic/claude-sonnet-5']['cost_per_decision_usd'] / FM['typesafe/jev-1.13']['cost_per_decision_usd']",
    "relevant_fields": "cost_per_decision_usd ratio",
@@ -1160,6 +1160,436 @@
    "relevant_fields": "urgency_auc",
    "value_in_blog": 0.92,
    "recomputed_value": 0.9244791666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev plus a fixed rule sent 92 of them to a human and missed > none of the 74 urgent ones",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['jev']['queue']",
+   "relevant_fields": "queue.all.jev.queue",
+   "value_in_blog": 92,
+   "recomputed_value": 92,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev plus a fixed rule sent 92 of them to a human and missed > none of the 74 urgent ones",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['jev']['urgent_missed']",
+   "relevant_fields": "urgent_missed",
+   "value_in_blog": 0,
+   "recomputed_value": 0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Sorting by scanner severity sent 366 and missed 7",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['severity_only']['urgent_missed']",
+   "relevant_fields": "urgent_missed",
+   "value_in_blog": 7,
+   "recomputed_value": 7,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Regex rules sent 49 > and missed 33",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['regex']['urgent_missed']",
+   "relevant_fields": "urgent_missed",
+   "value_in_blog": 33,
+   "recomputed_value": 33,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Scanner severity (review every HIGH/CRITICAL) | 366 (81%) | 67 | 7 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['severity_only']['queue']",
+   "relevant_fields": "queue",
+   "value_in_blog": 366,
+   "recomputed_value": 366,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Regex rules + rule | 49 (11%) | 41 | **33** |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['regex']['urgent_caught']",
+   "relevant_fields": "urgent_caught",
+   "value_in_blog": 41,
+   "recomputed_value": 41,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| **Jev fields + rule** | **92 (20%)** | **74** | **0** |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['jev']['urgent_caught']",
+   "relevant_fields": "urgent_caught",
+   "value_in_blog": 74,
+   "recomputed_value": 74,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Perfect fields + rule (the floor) | 74 (16%) | 74 | 0 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['oracle']['queue']",
+   "relevant_fields": "queue",
+   "value_in_blog": 74,
+   "recomputed_value": 74,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "it missed 9 urgent findings in set A and all 24 in set B",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['queue']['A']['regex']['urgent_missed']",
+   "relevant_fields": "queue.A.regex.urgent_missed",
+   "value_in_blog": 9,
+   "recomputed_value": 9,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "it missed 9 urgent findings in set A and all 24 in set B",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['queue']['B']['regex']['urgent_missed']",
+   "relevant_fields": "queue.B.regex.urgent_missed",
+   "value_in_blog": 24,
+   "recomputed_value": 24,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "99.8% of attacker-control answers",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['attacker_controlled']",
+   "relevant_fields": "field_accuracy.all.jev",
+   "value_in_blog": 0.998,
+   "recomputed_value": 0.9977777777777778,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "99.6% of test-code answers",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['test_code']",
+   "relevant_fields": "field_accuracy.all.jev",
+   "value_in_blog": 0.996,
+   "recomputed_value": 0.9955555555555555,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "98.7% of sensitive-data answers",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['sensitive']",
+   "relevant_fields": "field_accuracy.all.jev",
+   "value_in_blog": 0.987,
+   "recomputed_value": 0.9866666666666667,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "90% of sanitization answers",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['sanitization']",
+   "relevant_fields": "field_accuracy.all.jev",
+   "value_in_blog": 0.9,
+   "recomputed_value": 0.9022222222222223,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "92% of authentication answers",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['auth']",
+   "relevant_fields": "field_accuracy.all.jev",
+   "value_in_blog": 0.92,
+   "recomputed_value": 0.9155555555555556,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "It got all seven fields right on 80% of findings",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAJ['all_fields_correct']",
+   "relevant_fields": "all_fields_correct",
+   "value_in_blog": 0.8,
+   "recomputed_value": 0.8022222222222222,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "The regex managed 70% on set A and 2% on set B",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['field_accuracy']['B']['regex']['all_fields_correct']",
+   "relevant_fields": "all_fields_correct",
+   "value_in_blog": 0.02,
+   "recomputed_value": 0.02,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "with all seven right on 78% of set B",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['field_accuracy']['B']['jev']['all_fields_correct']",
+   "relevant_fields": "all_fields_correct",
+   "value_in_blog": 0.78,
+   "recomputed_value": 0.78,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Value a user stored earlier, read back | 0 of 70 | **70 of 70** | 24 of 27 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('second_order_source', 'jev')",
+   "relevant_fields": "traps",
+   "value_in_blog": 70,
+   "recomputed_value": 70,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Value a user stored earlier, read back | 0 of 70 | **70 of 70** | 24 of 27 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('second_order_source', 'sonnet')",
+   "relevant_fields": "traps",
+   "value_in_blog": 24,
+   "recomputed_value": 24,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Route registration commented out | 10 of 26 | **26 of 26** | 9 of 9 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('unreachable_commented', 'regex')",
+   "relevant_fields": "traps",
+   "value_in_blog": 10,
+   "recomputed_value": 10,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Route behind a disabled flag | 15 of 26 | **26 of 26** | 12 of 12 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('unreachable_flag', 'regex')",
+   "relevant_fields": "traps",
+   "value_in_blog": 15,
+   "recomputed_value": 15,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Dev/seed script without \"test\" in the path | 0 of 16 | **16 of 16** | 3 of 3 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('test_path_without_test_word', 'jev')",
+   "relevant_fields": "traps",
+   "value_in_blog": 16,
+   "recomputed_value": 16,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Sanitizer hidden in a helper function | **62 of 62** | 51 of 62 | 13 of 18 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('opaque_helper', 'jev')",
+   "relevant_fields": "traps",
+   "value_in_blog": 51,
+   "recomputed_value": 51,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Sanitizer hidden in a helper function | **62 of 62** | 51 of 62 | 13 of 18 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('opaque_helper', 'sonnet')",
+   "relevant_fields": "traps",
+   "value_in_blog": 13,
+   "recomputed_value": 13,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| \"TODO: add validation\" above working validation | **11 of 11** | 7 of 11 | 2 of 4 |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "trap('misleading_todo', 'jev')",
+   "relevant_fields": "traps",
+   "value_in_blog": 7,
+   "recomputed_value": 7,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev called 32 genuinely effective sanitizers \"none\" and   10 \"partial\"",
+   "source_artifact": "results/normalized/v2_predictions.csv",
+   "calculation": "xt('sanitization', 'effective', 'none')",
+   "relevant_fields": "f_sanitization vs truth",
+   "value_in_blog": 32,
+   "recomputed_value": 32,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev called 32 genuinely effective sanitizers \"none\" and   10 \"partial\"",
+   "source_artifact": "results/normalized/v2_predictions.csv",
+   "calculation": "xt('sanitization', 'effective', 'partial')",
+   "relevant_fields": "f_sanitization vs truth",
+   "value_in_blog": 10,
+   "recomputed_value": 10,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "never once called missing or partial sanitization effective",
+   "source_artifact": "results/normalized/v2_predictions.csv",
+   "calculation": "xt('sanitization', 'none', 'effective') + xt('sanitization', 'partial', 'effective')",
+   "relevant_fields": "f_sanitization vs truth",
+   "value_in_blog": 0,
+   "recomputed_value": 0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev read 34 guarded routes as unguarded",
+   "source_artifact": "results/normalized/v2_predictions.csv",
+   "calculation": "xt('auth', 'admin', 'none') + xt('auth', 'user', 'none')",
+   "relevant_fields": "f_auth vs truth",
+   "value_in_blog": 34,
+   "recomputed_value": 34,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "4 of 191 unguarded routes as requiring a login",
+   "source_artifact": "results/normalized/v2_predictions.csv",
+   "calculation": "xt('auth', 'none', 'user') + xt('auth', 'none', 'admin')",
+   "relevant_fields": "f_auth vs truth",
+   "value_in_blog": 4,
+   "recomputed_value": 4,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "4 of 191 unguarded routes as requiring a login",
+   "source_artifact": "data/v2_findings.json",
+   "calculation": "sum(f['truth']['auth'] == 'none' for f in v2f.values())",
+   "relevant_fields": "truth.auth",
+   "value_in_blog": 191,
+   "recomputed_value": 191,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "The Brier score per field ranged from 0.003 to 0.071",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "max(v for s in V2['brier']['jev'].values() for v in s.values())",
+   "relevant_fields": "brier.jev",
+   "value_in_blog": 0.071,
+   "recomputed_value": 0.071462,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Human queue | 31 of 150 (21%) | 30 of 150 (20%) |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QS['jev']['queue']",
+   "relevant_fields": "queue.subset_all.jev",
+   "value_in_blog": 31,
+   "recomputed_value": 31,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Human queue | 31 of 150 (21%) | 30 of 150 (20%) |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QS['sonnet']['queue']",
+   "relevant_fields": "queue.subset_all.sonnet",
+   "value_in_blog": 30,
+   "recomputed_value": 30,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| All seven fields correct | 79% | 73% |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAS['sonnet']['all_fields_correct']",
+   "relevant_fields": "all_fields_correct",
+   "value_in_blog": 0.73,
+   "recomputed_value": 0.7266666666666667,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| All seven fields correct | 79% | 73% |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "FAS['jev']['all_fields_correct']",
+   "relevant_fields": "all_fields_correct",
+   "value_in_blog": 0.79,
+   "recomputed_value": 0.7866666666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Median time per finding | 158 ms | 2,586 ms (16x slower) |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['cost']['sonnet']['latency_ms_p50']",
+   "relevant_fields": "cost.sonnet.latency_ms_p50",
+   "value_in_blog": 2586,
+   "recomputed_value": 2586.1,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Median time per finding | 158 ms | 2,586 ms (16x slower) |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['cost']['sonnet']['latency_ms_p50'] / V2['cost']['jev']['latency_ms_p50']",
+   "relevant_fields": "latency ratio",
+   "value_in_blog": 16,
+   "recomputed_value": 16.414471596318627,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Cost per finding | $0.000055 | $0.0040 (72x more expensive) |",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['cost']['sonnet']['cost_per_finding_usd'] / V2['cost']['jev']['cost_per_finding_usd']",
+   "relevant_fields": "cost ratio",
+   "value_in_blog": 72,
+   "recomputed_value": 72.35073431399604,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev costs about $0.06 per thousand findings; Sonnet 5 costs about $4",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "V2['cost']['jev']['cost_per_finding_usd'] * 1000",
+   "relevant_fields": "cost_per_finding_usd",
+   "value_in_blog": 0.055,
+   "recomputed_value": 0.05522523999999999,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "tripled the queue, to 265 of 450",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['jev_routed']['queue']",
+   "relevant_fields": "queue.all.jev_routed",
+   "value_in_blog": 265,
+   "recomputed_value": 265,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "tripled the queue, to 265 of 450",
+   "source_artifact": "results/analysis/v2_metrics.json",
+   "calculation": "QA['jev_routed']['urgent_caught'] - QA['jev']['urgent_caught']",
+   "relevant_fields": "extra urgent caught",
+   "value_in_blog": 0,
+   "recomputed_value": 0,
    "matches": true,
    "text_found_in_blog": true
   }

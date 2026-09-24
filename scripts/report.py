@@ -199,6 +199,61 @@ elif sec == "totals":
         print(f"{n:<42}{q:>12,}{(f'{t:,}' if t else '-'):>15}{c:>12.4f}")
     tot = r["cost_total_usd"] + S["cost_total_usd"] + F["total_cost_usd"]
     print(f"{'TOTAL (successful, billed responses)':<42}{'':>12}{'':>15}{tot:>12.4f}")
+elif sec == "v2":
+    q = pd.read_csv(T / "v2_queue.csv")
+    q = q[q.scope.isin(["all", "subset_all"])]
+    print("\n== v2: raw evidence -> fields -> same rule. Human queue and missed urgent findings ==")
+    print(
+        q[
+            [
+                "scope",
+                "pipeline",
+                "n",
+                "n_urgent",
+                "queue",
+                "queue_share",
+                "urgent_caught",
+                "urgent_missed",
+                "precision",
+            ]
+        ].to_string(index=False, float_format=lambda v: f"{v:.3f}")
+    )
+    fa = pd.read_csv(T / "v2_field_accuracy.csv")
+    show(fa[fa.scope.isin(["A", "B"])], "Field accuracy by set")
+    V2 = json.loads((ROOT / "results/analysis/v2_metrics.json").read_text())
+    for p, c in V2["cost"].items():
+        print(
+            f"{p:<7} requests={c['requests']} failed={c['failed']} p50={c['latency_ms_p50']:.0f} ms "
+            f"cost/finding=${c['cost_per_finding_usd']:.6f} total=${c['cost_total_usd']:.4f}"
+        )
+elif sec == "v2case":
+    F = {f["finding_id"]: f for f in json.loads((ROOT / "data/v2_findings.json").read_text())["findings"]}
+    s = F[sys.argv[2]]["state"]
+    print(f"# evidence sent to Jev for {sys.argv[2]} (no fields, only raw evidence)")
+    for k in ("file_path", "code_snippet", "route_config", "deployment"):
+        print(f"--- {k}")
+        print(s[k])
+    if "--answers" in sys.argv:
+        sys.path.insert(0, str(ROOT / "src"))
+        from jev_security import v2_evidence as V
+
+        ans = json.loads((ROOT / f"results/raw/v2/jev/{sys.argv[2]}.json").read_text())["response_body"][
+            "answers"
+        ]
+        rx = V.regex_fields(s)
+        truth = F[sys.argv[2]]["truth"]
+        print("\n# stored Jev answers vs regex vs truth (truth is never sent)")
+        print(f"{'field':<20}{'Jev (raw answer)':<26}{'regex':<12}{'truth':<10}")
+        for k in V.FIELDS:
+            a_ = ans[k]
+            j = f"{a_['noul']:.2f}" if a_["type"] == "noul" else f"{a_['choice']} ({a_['confidence']:.2f})"
+            print(f"{k:<20}{j:<26}{str(rx[k]):<12}{str(truth[k]):<10}")
+        jf, _ = V.jev_fields(ans)
+        f = F[sys.argv[2]]
+        print(
+            f"\nrule on Jev fields: {V.decide(jf, f)['disposition']} | rule on regex fields: "
+            f"{V.decide(rx, f)['disposition']} | reference: {f['reference']['disposition']}"
+        )
 elif sec == "scale":
     S = json.loads((ROOT / "results/analysis/scale_metrics.json").read_text())
     keep = [

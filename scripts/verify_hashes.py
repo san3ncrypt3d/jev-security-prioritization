@@ -16,11 +16,13 @@ for p, want in h["sha256"].items():
     bad += not ok
     print(f"  {'OK  ' if ok else 'DIFF'} {want[:16]}…  {p}")
 print(f"manifest sha256: {sha256_file(ROOT / 'experiments/experiment_manifest.json')}")
-v11 = ROOT / "experiments/v1.1_scale_manifest.json"
-if v11.exists():
+for extra in ["v1.1_scale_manifest.json", "v1.2.1_frontier_manifest.json", "v2_manifest.json"]:
+    v11 = ROOT / "experiments" / extra
+    if not v11.exists():
+        continue
     import json
 
-    print("v1.1 scale addendum:")
+    print(f"{extra}:")
     for p, want in json.loads(v11.read_text())["sha256"].items():
         ok = sha256_file(ROOT / p) == want
         bad += not ok

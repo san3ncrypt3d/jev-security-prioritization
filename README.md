@@ -30,11 +30,26 @@ domain            method   n  choice_acc  acc_ci_lo  acc_ci_hi  false_escalation
 
 The full write-up is in [`blog/jev-security-prioritization.md`](blog/jev-security-prioritization.md).
 
+## When to use Jev (and when not to)
+
+- **You already have verified facts about a finding** (attacker control, reachability,
+  sanitization, auth, exposure): use a deterministic rule. That's cheaper, exact and auditable.
+  Jev adds nothing there (experiment v1).
+- **You have raw evidence nobody has verified** (code snippet, route registration, deployment
+  config, file path): Jev can read it into those facts, one narrow question per fact, and your rule
+  makes the decision. On 450 such findings, Jev + rule sent 92 to a human and missed none of the 74
+  urgent ones. Severity sorting sent 366 and missed 7; regex rules sent 49 and missed 33
+  (experiment v2).
+
 ## Results summary
 
 All numbers come from `results/analysis/metrics.json` and `results/analysis/scale_metrics.json`.
 The reference is an **experimental rubric** written before any Jev call, not ground truth.
 
+- **Raw evidence to facts (v2).** Jev got all seven fields right on 80% of findings (regex: 70% on
+  familiar idioms, 2% on unfamiliar frameworks). Its errors leaned toward assuming less protection
+  than was there, so recall stayed at 100%. It matched Claude Sonnet 5 on a 150-finding subset at
+  16x the speed and 1/72nd of the cost.
 - **Context over severity.** Jev agreed with the rubric on 55% (SCA) and 49% (SAST) of dispositions,
   against 25% and 21% for severity-only sorting (exact McNemar p ≈ 5e-6 and 9e-6). Against a simple
   points formula it was a statistical tie (53% and 38%; p = 0.78 and 0.12).
@@ -73,6 +88,8 @@ src/jev_security/
   provenance.py  hashing, software versions, git commit
   scale.py       v1.1 addendum: 50k-finding throughput and cost run
   frontier.py    v1.2 addendum: latency/cost comparison with frontier chat models
+  v2_evidence.py v2: raw-evidence findings (set A), regex baseline, Jev field questions
+  v2_shift.py    v2: held-out set B (FastAPI, NestJS, Terraform), written after the regex was committed
 scripts/         freeze, smoke test, cost estimate, run, analyze, figures, report, secret scan,
                  real-terminal screenshots (term_record.py + tools/screenshot/render.mjs)
 data/            frozen synthetic datasets and reference labels
@@ -130,6 +147,7 @@ pytest -q                            # rubric, baselines, label hygiene, client 
 python scripts/analyze.py            # metrics.json + tables from results/raw/run-v1.0.0
 python scripts/analyze_scale.py      # scale_metrics.json from results/raw/scale-v1.1
 python scripts/analyze_frontier.py   # frontier_metrics.json from results/raw/frontier-v1.2
+python scripts/v2_analyze.py         # v2_metrics.json from results/raw/v2
 python scripts/make_figures.py       # results/figures/*.png
 python scripts/report.py counterfactual   # or: primary|contradiction|missing|adversarial|stability|cost|scale
 ```
@@ -145,6 +163,7 @@ python scripts/run_experiment.py --phase secondary --run-id my-run
 python scripts/analyze.py --run-id my-run
 python scripts/scale_run.py run                                # optional 50k scale run (~$2.60)
 python scripts/frontier_run.py run                             # optional frontier comparison (~$0.36)
+python scripts/v2.py run                                       # optional raw-evidence experiment (~$0.62)
 ```
 
 The smoke test refuses to run twice (its raw record is kept). Runs are resumable, and successful
@@ -153,7 +172,8 @@ which runs the command in a real terminal session and needs Node.js (`cd tools/s
 
 ## Limitations
 
-- Synthetic findings only. Real scanner output is messier.
+- Synthetic findings only. Real scanner output is messier. The v2 code snippets and the regex
+  baseline were written by the same author (set A flatters the regex, set B punishes it).
 - The reference rubric is one author's policy. B1 was written by the same author and shares its
   signals, so its agreement with the rubric is flattered.
 - 112 primary cases per domain, and 10 to 15 per cell in the secondary experiments. The confidence

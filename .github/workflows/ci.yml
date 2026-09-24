@@ -13,5 +13,5 @@ jobs:
       - run: python scripts/verify_hashes.py
       - run: pytest -q
       # Recompute every metric and figure from the committed raw responses (no API key needed).
-      - run: python scripts/analyze.py && python scripts/analyze_scale.py > /dev/null && python scripts/analyze_frontier.py > /dev/null && python scripts/make_figures.py && python scripts/build_claim_provenance.py
+      - run: python scripts/analyze.py && python scripts/analyze_scale.py > /dev/null && python scripts/analyze_frontier.py > /dev/null && python scripts/v2_analyze.py > /dev/null && python scripts/make_figures.py && python scripts/build_claim_provenance.py
       - run: python scripts/secret_scan.py

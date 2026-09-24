@@ -33,3 +33,12 @@ observed. One frontier request (google/gemini-3.8-flash on the same case, first 
 shuffled order) completed and was saved normally before the crash; it is kept and not re-sent. Fix: the label is now "none". v1.2.0's manifest is
 kept unchanged; v1.2.1's manifest covers the fixed files. The crash is preserved in
 `screenshots/recordings/08_final__frontier_v1.2.0_crash.cast`.
+
+## v2.0.0 (raw-evidence field extraction)
+Prompted by a reader question: if the facts are already verified, a rule decides; so where does Jev
+help? v2 gives only raw evidence (file path, code snippet, route registration, deployment config)
+for 450 synthetic SAST findings and asks Jev, a regex baseline and Claude Sonnet 5 (150-finding
+subset) to produce the facts; all feed the same frozen v1 rule. The regex and the Jev questions were
+committed (git f309979) before the held-out set B was written. A screenshot render failed after the
+run completed (missing output folder); the recording was intact and rendered afterwards. No request
+was re-run. Manifest: `experiments/v2_manifest.json`.

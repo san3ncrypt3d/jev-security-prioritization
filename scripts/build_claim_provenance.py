@@ -40,7 +40,7 @@ def ms(dom, field, mode, col):
 P = M["primary"]
 # (blog text, artifact, calculation, fields, shown value, tolerance)
 CLAIMS = [
-    ("879 API calls", MJ, "M['run']['requests_total_incl_smoke']", "run.requests_total_incl_smoke", 879, 0),
+    ("| Requests | 879 (878 + smoke), 0 failures, 0 retries |", MJ, "M['run']['requests_total_incl_smoke']", "run.requests_total_incl_smoke", 879, 0),
     ("1,084 cases needed 878 API calls", MJ, "M['run']['cases_total']", "run.cases_total", 1084, 0),
     (
         "All 879 benchmark requests came back",
@@ -823,7 +823,7 @@ CLAIMS += [
         0.0051,
     ),
     (
-        "cost 83 times\nas much",
+        "slower per decision and 25 to 83 times more expensive",
         FJ,
         "FM['anthropic/claude-sonnet-5']['cost_per_decision_usd'] / FM['typesafe/jev-1.13']['cost_per_decision_usd']",
         "cost_per_decision_usd ratio",
@@ -837,6 +837,335 @@ CLAIMS += [
         "urgency_auc",
         0.92,
         0.005,
+    ),
+]
+
+V2J = "results/analysis/v2_metrics.json"
+V2 = json.loads((ROOT / V2J).read_text())
+QA, QS = V2["queue"]["all"], V2["queue"]["subset_all"]
+FAJ, FAS = V2["field_accuracy"]["all"]["jev"], V2["field_accuracy"]["subset_all"]
+TR = {(t["trap"], t["pipeline"]): t for t in V2["traps"]}
+v2p = pd.read_csv(ROOT / "results/normalized/v2_predictions.csv")
+v2f = {f["finding_id"]: f for f in json.loads((ROOT / "data/v2_findings.json").read_text())["findings"]}
+jv = v2p[v2p.pipeline == "jev"]
+
+
+def xt(field, truth, pred):
+    return int(
+        sum(
+            (v2f[i]["truth"][field] == truth) and (jv.loc[j, f"f_{field}"] == pred)
+            for j, i in jv.finding_id.items()
+        )
+    )
+
+
+def trap(t, pipe):
+    r = TR[(t, pipe)]
+    return round(r["accuracy"] * r["n"])
+
+
+CLAIMS += [
+    (
+        "Jev plus a fixed rule sent 92 of them to a human and missed\n> none of the 74 urgent ones",
+        V2J,
+        "QA['jev']['queue']",
+        "queue.all.jev.queue",
+        92,
+        0,
+    ),
+    (
+        "Jev plus a fixed rule sent 92 of them to a human and missed\n> none of the 74 urgent ones",
+        V2J,
+        "QA['jev']['urgent_missed']",
+        "urgent_missed",
+        0,
+        0,
+    ),
+    (
+        "Sorting by scanner severity sent 366 and missed 7",
+        V2J,
+        "QA['severity_only']['urgent_missed']",
+        "urgent_missed",
+        7,
+        0,
+    ),
+    ("Regex rules sent 49\n> and missed 33", V2J, "QA['regex']['urgent_missed']", "urgent_missed", 33, 0),
+    (
+        "| Scanner severity (review every HIGH/CRITICAL) | 366 (81%) | 67 | 7 |",
+        V2J,
+        "QA['severity_only']['queue']",
+        "queue",
+        366,
+        0,
+    ),
+    (
+        "| Regex rules + rule | 49 (11%) | 41 | **33** |",
+        V2J,
+        "QA['regex']['urgent_caught']",
+        "urgent_caught",
+        41,
+        0,
+    ),
+    (
+        "| **Jev fields + rule** | **92 (20%)** | **74** | **0** |",
+        V2J,
+        "QA['jev']['urgent_caught']",
+        "urgent_caught",
+        74,
+        0,
+    ),
+    (
+        "| Perfect fields + rule (the floor) | 74 (16%) | 74 | 0 |",
+        V2J,
+        "QA['oracle']['queue']",
+        "queue",
+        74,
+        0,
+    ),
+    (
+        "it missed 9 urgent findings in\nset A and all 24 in set B",
+        V2J,
+        "V2['queue']['A']['regex']['urgent_missed']",
+        "queue.A.regex.urgent_missed",
+        9,
+        0,
+    ),
+    (
+        "it missed 9 urgent findings in\nset A and all 24 in set B",
+        V2J,
+        "V2['queue']['B']['regex']['urgent_missed']",
+        "queue.B.regex.urgent_missed",
+        24,
+        0,
+    ),
+    (
+        "99.8% of attacker-control answers",
+        V2J,
+        "FAJ['attacker_controlled']",
+        "field_accuracy.all.jev",
+        0.998,
+        0.0005,
+    ),
+    ("99.6% of test-code answers", V2J, "FAJ['test_code']", "field_accuracy.all.jev", 0.996, 0.0005),
+    ("98.7% of sensitive-data answers", V2J, "FAJ['sensitive']", "field_accuracy.all.jev", 0.987, 0.0005),
+    ("90% of sanitization answers", V2J, "FAJ['sanitization']", "field_accuracy.all.jev", 0.90, 0.005),
+    ("92% of authentication answers", V2J, "FAJ['auth']", "field_accuracy.all.jev", 0.92, 0.005),
+    (
+        "It got all seven fields right on 80% of findings",
+        V2J,
+        "FAJ['all_fields_correct']",
+        "all_fields_correct",
+        0.80,
+        0.005,
+    ),
+    (
+        "The regex managed 70% on set A and 2% on set B",
+        V2J,
+        "V2['field_accuracy']['B']['regex']['all_fields_correct']",
+        "all_fields_correct",
+        0.02,
+        0.005,
+    ),
+    (
+        "with all seven right on 78% of set B",
+        V2J,
+        "V2['field_accuracy']['B']['jev']['all_fields_correct']",
+        "all_fields_correct",
+        0.78,
+        0.005,
+    ),
+    (
+        "| Value a user stored earlier, read back | 0 of 70 | **70 of 70** | 24 of 27 |",
+        V2J,
+        "trap('second_order_source', 'jev')",
+        "traps",
+        70,
+        0,
+    ),
+    (
+        "| Value a user stored earlier, read back | 0 of 70 | **70 of 70** | 24 of 27 |",
+        V2J,
+        "trap('second_order_source', 'sonnet')",
+        "traps",
+        24,
+        0,
+    ),
+    (
+        "| Route registration commented out | 10 of 26 | **26 of 26** | 9 of 9 |",
+        V2J,
+        "trap('unreachable_commented', 'regex')",
+        "traps",
+        10,
+        0,
+    ),
+    (
+        "| Route behind a disabled flag | 15 of 26 | **26 of 26** | 12 of 12 |",
+        V2J,
+        "trap('unreachable_flag', 'regex')",
+        "traps",
+        15,
+        0,
+    ),
+    (
+        '| Dev/seed script without "test" in the path | 0 of 16 | **16 of 16** | 3 of 3 |',
+        V2J,
+        "trap('test_path_without_test_word', 'jev')",
+        "traps",
+        16,
+        0,
+    ),
+    (
+        "| Sanitizer hidden in a helper function | **62 of 62** | 51 of 62 | 13 of 18 |",
+        V2J,
+        "trap('opaque_helper', 'jev')",
+        "traps",
+        51,
+        0,
+    ),
+    (
+        "| Sanitizer hidden in a helper function | **62 of 62** | 51 of 62 | 13 of 18 |",
+        V2J,
+        "trap('opaque_helper', 'sonnet')",
+        "traps",
+        13,
+        0,
+    ),
+    (
+        '| "TODO: add validation" above working validation | **11 of 11** | 7 of 11 | 2 of 4 |',
+        V2J,
+        "trap('misleading_todo', 'jev')",
+        "traps",
+        7,
+        0,
+    ),
+    (
+        'Jev called 32 genuinely effective sanitizers "none" and\n  10 "partial"',
+        "results/normalized/v2_predictions.csv",
+        "xt('sanitization', 'effective', 'none')",
+        "f_sanitization vs truth",
+        32,
+        0,
+    ),
+    (
+        'Jev called 32 genuinely effective sanitizers "none" and\n  10 "partial"',
+        "results/normalized/v2_predictions.csv",
+        "xt('sanitization', 'effective', 'partial')",
+        "f_sanitization vs truth",
+        10,
+        0,
+    ),
+    (
+        "never once called missing or partial sanitization effective",
+        "results/normalized/v2_predictions.csv",
+        "xt('sanitization', 'none', 'effective') + xt('sanitization', 'partial', 'effective')",
+        "f_sanitization vs truth",
+        0,
+        0,
+    ),
+    (
+        "Jev read 34 guarded routes as unguarded",
+        "results/normalized/v2_predictions.csv",
+        "xt('auth', 'admin', 'none') + xt('auth', 'user', 'none')",
+        "f_auth vs truth",
+        34,
+        0,
+    ),
+    (
+        "4 of 191 unguarded routes as requiring a login",
+        "results/normalized/v2_predictions.csv",
+        "xt('auth', 'none', 'user') + xt('auth', 'none', 'admin')",
+        "f_auth vs truth",
+        4,
+        0,
+    ),
+    (
+        "4 of 191 unguarded routes as requiring a login",
+        "data/v2_findings.json",
+        "sum(f['truth']['auth'] == 'none' for f in v2f.values())",
+        "truth.auth",
+        191,
+        0,
+    ),
+    (
+        "The Brier score per field ranged from 0.003 to 0.071",
+        V2J,
+        "max(v for s in V2['brier']['jev'].values() for v in s.values())",
+        "brier.jev",
+        0.071,
+        0.0005,
+    ),
+    (
+        "| Human queue | 31 of 150 (21%) | 30 of 150 (20%) |",
+        V2J,
+        "QS['jev']['queue']",
+        "queue.subset_all.jev",
+        31,
+        0,
+    ),
+    (
+        "| Human queue | 31 of 150 (21%) | 30 of 150 (20%) |",
+        V2J,
+        "QS['sonnet']['queue']",
+        "queue.subset_all.sonnet",
+        30,
+        0,
+    ),
+    (
+        "| All seven fields correct | 79% | 73% |",
+        V2J,
+        "FAS['sonnet']['all_fields_correct']",
+        "all_fields_correct",
+        0.73,
+        0.005,
+    ),
+    (
+        "| All seven fields correct | 79% | 73% |",
+        V2J,
+        "FAS['jev']['all_fields_correct']",
+        "all_fields_correct",
+        0.79,
+        0.005,
+    ),
+    (
+        "| Median time per finding | 158 ms | 2,586 ms (16x slower) |",
+        V2J,
+        "V2['cost']['sonnet']['latency_ms_p50']",
+        "cost.sonnet.latency_ms_p50",
+        2586,
+        0.5,
+    ),
+    (
+        "| Median time per finding | 158 ms | 2,586 ms (16x slower) |",
+        V2J,
+        "V2['cost']['sonnet']['latency_ms_p50'] / V2['cost']['jev']['latency_ms_p50']",
+        "latency ratio",
+        16,
+        0.5,
+    ),
+    (
+        "| Cost per finding | $0.000055 | $0.0040 (72x more expensive) |",
+        V2J,
+        "V2['cost']['sonnet']['cost_per_finding_usd'] / V2['cost']['jev']['cost_per_finding_usd']",
+        "cost ratio",
+        72,
+        0.5,
+    ),
+    (
+        "Jev\ncosts about $0.06 per thousand findings; Sonnet 5 costs about $4",
+        V2J,
+        "V2['cost']['jev']['cost_per_finding_usd'] * 1000",
+        "cost_per_finding_usd",
+        0.055,
+        0.006,
+    ),
+    ("tripled the queue, to 265 of 450", V2J, "QA['jev_routed']['queue']", "queue.all.jev_routed", 265, 0),
+    (
+        "tripled the queue, to 265 of 450",
+        V2J,
+        "QA['jev_routed']['urgent_caught'] - QA['jev']['urgent_caught']",
+        "extra urgent caught",
+        0,
+        0,
     ),
 ]
 

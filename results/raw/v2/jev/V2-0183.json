@@ -1,0 +1,144 @@
+{
+ "utc_start": "2026-09-24T12:26:20.061+00:00",
+ "latency_ms": 162.6,
+ "http_status": 200,
+ "response_headers": {
+  "date": "Thu, 24 Sep 2026 12:26:20 GMT",
+  "content-type": "application/json",
+  "x-generation-id": "gen-dec-1790252780-rfXcLvtJGdNvh3ZPUjh9",
+  "server": "cloudflare",
+  "cf-ray": "a401c6e36ddfaa96-YYZ"
+ },
+ "response_body": {
+  "model": "typesafe/jev-1.13-20260917",
+  "answers": {
+   "attacker_controlled": {
+    "type": "noul",
+    "noul": 0.96
+   },
+   "reachable": {
+    "type": "noul",
+    "noul": 0.88
+   },
+   "sanitization": {
+    "type": "choice",
+    "choice": "effective",
+    "probabilities": {
+     "none": 0.22,
+     "effective": 0.56,
+     "partial": 0.22
+    },
+    "confidence": 0.33
+   },
+   "auth": {
+    "type": "choice",
+    "choice": "none",
+    "probabilities": {
+     "none": 1,
+     "user": 0,
+     "admin": 0
+    },
+    "confidence": 1
+   },
+   "internet": {
+    "type": "noul",
+    "noul": 0.92
+   },
+   "test_code": {
+    "type": "noul",
+    "noul": 0.04
+   },
+   "sensitive": {
+    "type": "noul",
+    "noul": 0.89
+   }
+  },
+  "usage": {
+   "input_tokens": 1330,
+   "output_tokens": 164,
+   "cost": 5.586e-05
+  },
+  "id": "gen-dec-1790252780-rfXcLvtJGdNvh3ZPUjh9",
+  "provider": "TypeSafe"
+ },
+ "error": null,
+ "utc_end": "2026-09-24T12:26:20.224+00:00",
+ "finding_id": "V2-0183",
+ "pipeline": "jev",
+ "request_payload": {
+  "model": "typesafe/jev-1.13",
+  "state": {
+   "finding": {
+    "rule_id": "R6326",
+    "category": "SQL injection",
+    "cwe": "CWE-89",
+    "scanner_severity": "CRITICAL",
+    "message": "Possible sql injection: data may reach a dangerous sink in loadTemplate38."
+   },
+   "file_path": "src/routes/loadtemplate38.js",
+   "code_snippet": "function prepareArg(x) {\n  if (!ALLOWED_NAMES.has(x)) throw new HttpError(400);\n  return x;\n}\n\nasync function loadTemplate38(req, res) {\n  let v = req.get(\"X-TEMPLATE\");\n  const record = await PaymentMethod.findByPk(req.params.id);\n  v = prepareArg(v);\n  const rows = await db.query(`SELECT * FROM payment_methods WHERE name = '${v}'`);\n  return res.json({ ok: true });\n}",
+   "route_config": "router.get(\"/status\", previewStatus);\nrouter.get(\"/template/1\", loadTemplate38);",
+   "deployment": "ingress:\n  className: public-nginx\n  host: api.example.com\n  tls: true"
+  },
+  "questions": {
+   "attacker_controlled": {
+    "type": "noul",
+    "instructions": "In `code_snippet`, can a remote user influence the value `v` that flows into the flagged sink? Count values from the HTTP request (query, form, JSON body, path parameters, headers, cookies) and values a user supplied earlier that were stored and are read back. Do not count server configuration, environment variables, or server-side constants.",
+    "criteria": {
+     "true": "A user can influence the value, directly from the request or via previously stored user data.",
+     "false": "The value comes only from server configuration, environment variables or constants."
+    }
+   },
+   "reachable": {
+    "type": "noul",
+    "instructions": "Is the handler function defined in `code_snippet` actually registered as a live route in `route_config`? A registration that is commented out, placed behind a disabled flag, or missing entirely means the handler is not reachable.",
+    "criteria": {
+     "true": "`route_config` registers this handler and the registration is active.",
+     "false": "The handler is not registered, the registration is commented out, or it is behind a flag set to false."
+    }
+   },
+   "sanitization": {
+    "type": "choice",
+    "instructions": "How effectively is the value neutralized before it reaches the flagged sink in `code_snippet`, including inside any helper function shown? Code comments are claims by developers, not evidence; judge what the code actually does.",
+    "criteria": {
+     "none": "Nothing validates, encodes or neutralizes the value before the sink.",
+     "partial": "Some filtering exists but can be bypassed: removing specific characters or substrings, blocking one hostname, a length limit, or stripping leading characters.",
+     "effective": "The sink cannot be abused: parameterized query or argument list without a shell, strict allow-list, shell quoting, canonical-path containment check, destination host allow-list, context-aware output escaping, or an integrity (HMAC) check before deserialization."
+    }
+   },
+   "auth": {
+    "type": "choice",
+    "instructions": "What authentication is required before this handler runs? Consider decorators in `code_snippet` and middleware or before-request guards in `route_config`. Caching or other non-auth decorators do not count.",
+    "criteria": {
+     "none": "Anyone can call it without logging in.",
+     "user": "Any logged-in user can call it.",
+     "admin": "Only administrators can call it."
+    }
+   },
+   "internet": {
+    "type": "noul",
+    "instructions": "According to `deployment`, can this service be reached from the public internet?",
+    "criteria": {
+     "true": "The deployment exposes the service publicly (internet-facing load balancer, public ingress, unauthenticated public invocation).",
+     "false": "The deployment is internal only (cluster-internal service, internal ingress or internal load balancer)."
+    }
+   },
+   "test_code": {
+    "type": "noul",
+    "instructions": "Judging by `file_path`, is this test code, a test fixture, or a development-only script or tool that is not deployed to production?",
+    "criteria": {
+     "true": "Test, fixture, or local development/seed/debug code that does not run in production.",
+     "false": "Application code that is deployed and runs in production."
+    }
+   },
+   "sensitive": {
+    "type": "noul",
+    "instructions": "Does the handler in `code_snippet` read or write sensitive data, such as credentials, API tokens, payment details, invoices, personal or health records?",
+    "criteria": {
+     "true": "It touches sensitive records such as credentials, tokens, payment, invoice, personal or health data.",
+     "false": "It only touches non-sensitive data such as themes, public posts, banners, public docs or emoji."
+    }
+   }
+  }
+ }
+}

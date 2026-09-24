@@ -389,5 +389,48 @@
   "blog_section": "16. Reproducing the experiment",
   "caption": "Final repository layout after the last commit (clean working tree).",
   "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/09_v2/v2_run.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/v2.py run"
+  ],
+  "recording": "screenshots/recordings/09_v2__v2_run.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T12:27:55+00:00",
+  "rendered_utc": "2026-09-24T12:28:12+00:00",
+  "source_artifact": "results/raw/v2/",
+  "blog_section": "v2: before the human",
+  "caption": "Experiment v2 running live: Jev on all 450 raw-evidence findings, Claude Sonnet 5 on a stratified 150.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/09_v2/v2_raw_evidence_example.png",
+  "commands": [
+   "python scripts/report.py v2case V2B-0019 --answers"
+  ],
+  "recording": "screenshots/recordings/09_v2__v2_raw_evidence_example.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T12:30:01+00:00",
+  "rendered_utc": "2026-09-24T12:30:02+00:00",
+  "source_artifact": "data/v2_findings.json, results/raw/v2/jev/V2B-0019.json",
+  "blog_section": "v2: before the human",
+  "caption": "One held-out finding: only raw evidence goes to Jev. Jev's stored answers, the regex baseline and the truth are printed underneath.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/09_v2/v2_results.png",
+  "commands": [
+   "python scripts/v2_analyze.py > /dev/null && python scripts/report.py v2"
+  ],
+  "recording": "screenshots/recordings/09_v2__v2_results.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T12:30:03+00:00",
+  "rendered_utc": "2026-09-24T12:30:04+00:00",
+  "source_artifact": "results/tables/v2_queue.csv, results/tables/v2_field_accuracy.csv",
+  "blog_section": "v2: before the human",
+  "caption": "v2 results: human queue, urgent findings missed, field accuracy per set, latency and cost.",
+  "secret_check": "passed (recording refused otherwise)"
  }
 ]

@@ -205,3 +205,31 @@ def test_client_never_exposes_key(tmp_path, monkeypatch):
     assert "set-cookie" not in rec["response_headers"]
     with pytest.raises(FileExistsError):  # raw records are write-once
         client.decide({"model": "m", "state": "s", "questions": {}}, tmp_path, "k1")
+
+
+# --- experiment v2 ---------------------------------------------------------------
+
+
+def test_v2_evidence_has_no_labels_and_references_recompute():
+    from jev_security import v2_evidence as V2
+
+    for f in json.loads((ROOT / "data/v2_findings.json").read_text())["findings"]:
+        blob = json.dumps(f["state"])
+        for word in ("attacker_controlled", "test_code", "urgent", "truth", "EMERGENCY", "ACCELERATED"):
+            assert word not in blob, (f["finding_id"], word)
+        assert V2.decide(f["truth"], f)["exposure"] == f["reference"]["exposure"]
+
+
+def test_v2_jev_fields_thresholds():
+    from jev_security import v2_evidence as V2
+
+    ans = {
+        k: (
+            {"type": "noul", "noul": 0.6}
+            if q["type"] == "noul"
+            else {"type": "choice", "choice": "none", "confidence": 0.9}
+        )
+        for k, q in V2.V2_QUESTIONS.items()
+    }
+    fields, unsure = V2.jev_fields(ans)
+    assert fields["reachable"] is True and unsure is True
