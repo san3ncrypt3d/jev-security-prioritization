@@ -374,5 +374,20 @@
   "blog_section": "11. Cost and performance",
   "caption": "Jev vs three frontier chat models on the same 40 cases: latency, tokens, cost, and small-n agreement.",
   "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/final_repository_structure.png",
+  "commands": [
+   "python scripts/show_tree.py 2 6",
+   "git status --short | wc -l; git log --oneline"
+  ],
+  "recording": "screenshots/recordings/08_final__final_repository_structure.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:54:56+00:00",
+  "rendered_utc": "2026-09-24T01:54:57+00:00",
+  "source_artifact": "repository working tree",
+  "blog_section": "16. Reproducing the experiment",
+  "caption": "Final repository layout after the last commit (clean working tree).",
+  "secret_check": "passed (recording refused otherwise)"
  }
 ]
