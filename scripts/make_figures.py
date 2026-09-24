@@ -208,7 +208,8 @@ for ax, dom in zip(axes, ["sca", "sast"]):
 axes[0].legend(loc="lower center", bbox_to_anchor=(1.1, -0.32), ncol=2)
 save(fig, "fig3_attribute_sensitivity_score")
 
-fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
+fig, axes = plt.subplots(1, 2, figsize=(12, 4.4))
+fig.subplots_adjust(wspace=0.75)
 for ax, dom in zip(axes, ["sca", "sast"]):
     d = cf[cf.domain == dom].sort_values("mean_d_noul")
     y = np.arange(len(d))
@@ -225,11 +226,11 @@ for ax, dom in zip(axes, ["sca", "sast"]):
         zorder=3,
     )
     for yv, fr in zip(y, d.choice_flip_rate):
-        ax.text(0.43, yv, f"{fr:.0%}", va="center", ha="right", fontsize=9, color=INK2)
-    ax.text(0.43, len(d) - 0.35, "disposition\nflipped", ha="right", va="bottom", fontsize=8, color=INK2)
+        ax.text(0.5, yv, f"{fr:.0%}", va="center", ha="right", fontsize=9, color=INK2)
+    ax.text(0.5, len(d) - 0.35, "disposition\nflipped", ha="right", va="bottom", fontsize=8, color=INK2)
     ax.set_yticks(y, [NAMES[a] for a in d.attribute])
     ax.axvline(0, color=INK2, lw=0.8)
-    ax.set_xlim(-0.05, 0.44)
+    ax.set_xlim(-0.05, 0.52)
     ax.set_xlabel("Mean Δ P(urgent) from the Noul question")
     ax.set_title(DOM[dom])
     ax.grid(axis="y", visible=False)

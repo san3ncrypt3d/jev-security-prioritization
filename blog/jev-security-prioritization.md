@@ -587,11 +587,13 @@ Decision support, yes. Automatic remediation or suppression, no.
 
 ## 16. Reproducing the experiment
 
-Everything is in the repo, including every raw response, so you can recompute every number
+Everything is in the
+[repo](https://github.com/san3ncrypt3d/jev-security-prioritization), including every raw response, so you can recompute every number
 without an API key.
 
 ```bash
-git clone <repo-url> && cd <repo>
+git clone https://github.com/san3ncrypt3d/jev-security-prioritization.git
+cd jev-security-prioritization
 uv venv .venv && source .venv/bin/activate
 uv pip install -e '.[dev]' tabulate
 
