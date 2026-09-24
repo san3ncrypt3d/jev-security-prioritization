@@ -1,0 +1,24 @@
+{
+ "smoke_input_tokens": 1215,
+ "smoke_cost": 5.103e-05,
+ "phases": {
+  "sca_main": {
+   "requests": 122,
+   "est_tokens": 149711,
+   "est_cost_usd": 0.0062878788
+  },
+  "sast_main": {
+   "requests": 122,
+   "est_tokens": 152845,
+   "est_cost_usd": 0.006419485799999999
+  },
+  "secondary": {
+   "requests": 634,
+   "est_tokens": 789212,
+   "est_cost_usd": 0.033146883
+  }
+ },
+ "total_requests": 878,
+ "total_est_tokens": 1091768,
+ "total_est_cost_usd": 0.0458542476
+}

@@ -1,0 +1,47 @@
+{
+ "experiment_version": "1.1.0-scale-addendum",
+ "reason": "Added after v1.0 completed, at the user's request, to measure throughput and cost on 50,000 findings. v1.0 artifacts are unchanged; see experiments/CHANGELOG.md.",
+ "model_requested": "typesafe/jev-1.13",
+ "endpoint": "https://openrouter.ai/api/alpha/decisions",
+ "seed": "20260923-scale-v1.1",
+ "n_findings": 50000,
+ "sampling": "uniform over attribute domains (not stratified)",
+ "reuses_frozen_v1.0": [
+  "sampler (datasets._sca/_sast_random_facts)",
+  "render (canonical)",
+  "reference rubric",
+  "baselines",
+  "question definitions"
+ ],
+ "concurrency": 8,
+ "budget_stop_usd": 3.5,
+ "user_approved_estimate_usd": 2.6,
+ "primary_measures": [
+  "wall-clock throughput (requests/s)",
+  "latency distribution under concurrency",
+  "total tokens and cost",
+  "error/429 rate"
+ ],
+ "secondary_measures": [
+  "agreement with the rubric on a uniform sample",
+  "Noul calibration (Brier, ECE, reliability) with n=50k",
+  "choice/score confidence distributions"
+ ],
+ "software": {
+  "python": "3.12.14",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "matplotlib": "3.11.2",
+  "scipy": "1.18.1",
+  "requests": "2.34.2",
+  "rich": "15.0.0",
+  "pytest": "9.1.1",
+  "ruff": "0.16.8"
+ },
+ "sha256": {
+  "data/scale_v1.1.jsonl.gz": "c7688ac3a0e2602ae9ec63be5dbbabfbfc4dc67e1317d905e9e7adde4d83004d",
+  "src/jev_security/scale.py": "6008ae7eb576c27ff2a88dd4e6258cb52a501e4eb195b0df573fedf33063819c",
+  "scripts/scale_run.py": "5cdd2d2640732bfb213e5db5aa978d4f5091b4465c435b7be3ba574f503781f3"
+ }
+}

@@ -87,5 +87,107 @@
   "blog_section": "5. SAST experiment",
   "caption": "The exact state sent to Jev. The local labels at the bottom are never sent.",
   "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/02_smoke_test/first_jev_security_decision.png",
+  "commands": [
+   "python scripts/smoke_test.py"
+  ],
+  "recording": "screenshots/recordings/02_smoke_test__first_jev_security_decision.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:04:11+00:00",
+  "rendered_utc": "2026-09-24T01:04:12+00:00",
+  "source_artifact": "results/raw/smoke/responses/",
+  "blog_section": "3. Building the experiment",
+  "caption": "The first live Jev security decision: one synthetic SCA case, three typed questions in one request, and the response-contract checks.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/02_smoke_test/smoke_request_state.png",
+  "commands": [
+   "python scripts/smoke_test.py --show --request"
+  ],
+  "recording": "screenshots/recordings/02_smoke_test__smoke_request_state.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:04:24+00:00",
+  "rendered_utc": "2026-09-24T01:04:25+00:00",
+  "source_artifact": "results/raw/smoke/responses/",
+  "blog_section": "3. Building the experiment",
+  "caption": "The exact state sent in the smoke-test request (read back from the stored raw record; headers are never stored).",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/02_smoke_test/cost_estimate_gate4.png",
+  "commands": [
+   "python scripts/estimate_cost.py"
+  ],
+  "recording": "screenshots/recordings/02_smoke_test__cost_estimate_gate4.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:04:25+00:00",
+  "rendered_utc": "2026-09-24T01:04:26+00:00",
+  "source_artifact": "results/analysis/cost_estimate.json",
+  "blog_section": "11. Cost and performance",
+  "caption": "Gate 4: planned requests and estimated cost, extrapolated from the smoke test's real token count and billed cost.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/03_sca/sca_experiment_completed.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase sca_main --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/03_sca__sca_experiment_completed.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:05:44+00:00",
+  "rendered_utc": "2026-09-24T01:05:45+00:00",
+  "source_artifact": "results/raw/run-v1.0.0/",
+  "blog_section": "4. SCA experiment",
+  "caption": "Gate 5: the SCA main phase (main + contradiction + conflicting-source cases) run live, with the frozen-hash check first.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/03_sca/sca_experiment_starting.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase sca_main --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/03_sca__sca_experiment_completed.cast",
+  "frame": "until 'to_send=' (occurrence 1)",
+  "recorded_utc": "2026-09-24T01:05:44+00:00",
+  "rendered_utc": "2026-09-24T01:05:46+00:00",
+  "source_artifact": "screenshots/recordings/03_sca__sca_experiment_completed.cast",
+  "blog_section": "4. SCA experiment",
+  "caption": "The moment the main SCA run started (frame from the real recording).",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/04_sast/sast_experiment_completed.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase sast_main --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/04_sast__sast_experiment_completed.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:07:00+00:00",
+  "rendered_utc": "2026-09-24T01:07:01+00:00",
+  "source_artifact": "results/raw/run-v1.0.0/",
+  "blog_section": "5. SAST experiment",
+  "caption": "Gate 6: the SAST main phase run live.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/05_counterfactual/secondary_experiments_completed.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase secondary --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/05_counterfactual__secondary_experiments_completed.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:13:08+00:00",
+  "rendered_utc": "2026-09-24T01:13:09+00:00",
+  "source_artifact": "results/raw/run-v1.0.0/",
+  "blog_section": "6-9. Counterfactual / missing / adversarial",
+  "caption": "Gate 7: counterfactual, missing-evidence, adversarial, paraphrase and repeat requests run live.",
+  "secret_check": "passed (recording refused otherwise)"
  }
 ]

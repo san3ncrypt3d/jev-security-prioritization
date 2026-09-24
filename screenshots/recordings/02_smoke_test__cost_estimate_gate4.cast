@@ -1,0 +1,8 @@
+{"version": 2, "width": 90, "height": 40, "timestamp": 1790211865, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/estimate_cost.py"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.126, "o", "python scripts/estimate_cost.py\r\n\u001b[?2004l\r"]
+[0.212, "o", "smoke calibration: 4050 payload chars -> 1215 input tokens, cost $0.000051030\r\n  => 0.3000 tokens/char, $0.0420 per 1M input tokens\r\n\r\nphase         requests   est. tokens   est. cost USD\r\n"]
+[0.224, "o", "sca_main           122       149,711          0.0063\r\n"]
+[0.244, "o", "sast_main          122       152,845          0.0064\r\n"]
+[0.291, "o", "secondary          634       789,212          0.0331\r\nTOTAL              878     1,091,768          0.0459\r\n\r\nWorst case incl. one retry per request: $0.0917\r\nCost gate ($1.00): PASS - proceed\r\n"]
+[0.307, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
