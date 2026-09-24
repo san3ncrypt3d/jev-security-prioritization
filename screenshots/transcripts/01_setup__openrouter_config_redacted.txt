@@ -1,0 +1,9 @@
+$ python scripts/show_config.py
+OpenRouter Decisions API configuration
+----------------------------------------
+endpoint          : https://openrouter.ai/api/alpha/decisions
+model (pinned)    : typesafe/jev-1.13
+credential env var: OPENROUTER_API_KEY = <set (73 chars, value redacted)>
+timeout           : 60s
+max attempts      : 2 (retry only on [429, 500, 502, 503, 504] / network errors)
+.env tracked by git: no

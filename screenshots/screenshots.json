@@ -1,0 +1,26 @@
+[
+ {
+  "filename": "screenshots/01_setup/clean_project_structure.png",
+  "title": "Project scaffold (before any API call)",
+  "command": "python scripts/show_tree.py 3",
+  "captured_utc": "2026-09-24T00:55:28+00:00",
+  "exit_code": 0,
+  "transcript": "screenshots/transcripts/01_setup__clean_project_structure.txt",
+  "source_artifact": "repository working tree",
+  "blog_section": "3. Building the experiment",
+  "caption": "Initial project layout: source package, data, frozen experiment, results and screenshot folders.",
+  "secret_check": "passed"
+ },
+ {
+  "filename": "screenshots/01_setup/openrouter_config_redacted.png",
+  "title": "Jev / OpenRouter configuration (credential redacted)",
+  "command": "python scripts/show_config.py",
+  "captured_utc": "2026-09-24T00:55:28+00:00",
+  "exit_code": 0,
+  "transcript": "screenshots/transcripts/01_setup__openrouter_config_redacted.txt",
+  "source_artifact": "src/jev_security/client.py",
+  "blog_section": "3. Building the experiment",
+  "caption": "Pinned model, endpoint and request policy. The API key is loaded from .env and never printed.",
+  "secret_check": "passed"
+ }
+]

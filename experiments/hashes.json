@@ -1,0 +1,20 @@
+{
+ "experiment_version": "1.0.0",
+ "model_requested": "typesafe/jev-1.13",
+ "endpoint": "https://openrouter.ai/api/alpha/decisions",
+ "random_seed": 20260923,
+ "sha256": {
+  "experiments/experiment_manifest.json": "85fb447609a53c26bd016e9ba8be30c68300e27abae34d4fca1d4a071768d16b",
+  "experiments/question_definitions.json": "0f51db745e3fca0b16d1182f2d1ad6595f927f2558b1f5c08390b5e5b0265dcb",
+  "data/sca_cases.json": "e3202f53c63d557cc9e7af28cb084e8891f8f9a83e8cf5d959741a4294afff32",
+  "data/sast_cases.json": "13f7ca9895aca172ada5cf2dce8a48ea5dd3aa7c842501c4502e38fb300c305e",
+  "data/reference_labels.json": "e9ef4d9e65eb989b228dac3c25cddabe33c3b81581f17d03aac515ec61805956",
+  "data/smoke_case.json": "fc79fa64e4203de154422170789af6431b7f5b9ec5f22a12fe4a621ea0490d92",
+  "src/jev_security/questions.py": "164c0166aff25eff896b8c6ceb32333230f08ae23763cbe31ff112e58e94c9e8",
+  "src/jev_security/baseline.py": "fa880461b4dd8ac729e8d9c6d0f26f5d834f2f0bf78921c36959d81658825d96",
+  "src/jev_security/reference.py": "9cc7696f8150494aa0234184aaac5004184600e209f65c77fd6932f6d921349d",
+  "src/jev_security/render.py": "45a013dada51c7a91edee06ef1489d94cb0e73330b7f66460f5a90a395d96df5",
+  "src/jev_security/schemas.py": "83629b78652bfde4d60be3daa78238ecfde3222a4449c4096f200a428133d282",
+  "src/jev_security/datasets.py": "7563333235784995222a978c93b0dbbf30972fe061a9875f3820a2a0882d0966"
+ }
+}

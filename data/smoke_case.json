@@ -1,0 +1,88 @@
+{
+ "case_id": "sca-smoke-001",
+ "domain": "sca",
+ "experiment": "smoke",
+ "group": null,
+ "variant": null,
+ "attribute": null,
+ "anchor_case_id": null,
+ "tags": [],
+ "render": {
+  "representation": "canonical",
+  "description_variant": "A",
+  "adversarial": null
+ },
+ "facts": {
+  "cvss": 9.8,
+  "epss": 0.004,
+  "kev": false,
+  "exploit": "none",
+  "internet": false,
+  "reachable": false,
+  "asset": "critical",
+  "sensitive": true,
+  "privileges": "none",
+  "complexity": "high",
+  "fix": true,
+  "control": "none",
+  "dependency": "direct",
+  "environment": "production",
+  "finding_id": "OSV-000001",
+  "package": "marrowdb-client",
+  "version": "6.9.3",
+  "vuln_class": "path traversal during archive extraction",
+  "function": "extractAll",
+  "service": "svc-altair"
+ },
+ "state": {
+  "finding_id": "OSV-000001",
+  "finding_type": "open-source dependency vulnerability (SCA)",
+  "package": "marrowdb-client",
+  "installed_version": "6.9.3",
+  "dependency_type": "direct",
+  "vulnerability_class": "path traversal during archive extraction",
+  "cvss_v3_base_score": 9.8,
+  "cvss_severity": "CRITICAL",
+  "epss_probability": 0.004,
+  "epss_band": "very low",
+  "cisa_kev_listed": false,
+  "public_exploit": "none known",
+  "internet_exposed": false,
+  "vulnerable_function_reachable": false,
+  "asset_criticality": "critical",
+  "handles_sensitive_data": true,
+  "privileges_required": "none",
+  "attack_complexity": "high",
+  "fix_available": true,
+  "compensating_control": "none",
+  "environment": "production",
+  "description": "marrowdb-client 6.9.3 is reported to contain a path traversal during archive extraction weakness in its extractAll() function. The package is included in the svc-altair service."
+ },
+ "request_key": "sca-8f56c7b5ab3ace2ea3a62c78",
+ "reference": {
+  "disposition": "STANDARD",
+  "exposure": 1,
+  "exposure_range": [
+   1,
+   1
+  ],
+  "urgent": false,
+  "fully_known": true,
+  "threat": 0,
+  "impact": 3,
+  "n_completions": 1
+ },
+ "baselines": {
+  "severity_only": {
+   "disposition": "EMERGENCY",
+   "exposure": 4,
+   "urgent": true
+  },
+  "context_points": {
+   "disposition": "STANDARD",
+   "exposure": 2,
+   "urgent": false,
+   "points": 5
+  }
+ }
+}
