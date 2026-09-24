@@ -1,0 +1,12 @@
+{"version": 2, "width": 118, "height": 45, "timestamp": 1790211838, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/show_case.py sast-contra-low_-01 --labels"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.227, "o", "python scripts/show_case.py sast-contra-low_-01 --labels"]
+[0.227, "o", "\r\n"]
+[0.227, "o", "\u001b[?2004l\r"]
+[0.255, "o", "# state sent to Jev for sast-contra-low_-01 (experiment=contradiction)\r\n"]
+[0.255, "o", "{\r\n \"finding_id\": \"SAST-780639\",\r\n \"finding_type\": \"static analysis (SAST) finding\",\r\n \"cwe\": \"CWE-601\",\r\n \"category\": \"Open redirect\",\r\n \"scanner_severity\": \"MEDIUM\",\r\n \"source\": \"`id` parameter of FeedImporter.logout()\",\r\n \"sink\": \"value used as the Location header of an HTTP redirect\",\r\n \"code_flow\": \"`id` -> buildRedirect() -> sink\",\r\n \"attacker_controlled_input\": true,\r\n \"source_to_sink_reachable\": true,\r\n \"sanitization\": \"none: no validation or encoding on the path\",\r\n \"authentication_required\": \"none (anonymous access)\",\r\n \"internet_exposed\": true,\r\n"]
+[0.255, "o", " \"privilege_context\": \"process runs with root/administrator privileges\",\r\n \"handles_sensitive_data\": true,\r\n \"exploit_preconditions\": \"none\",\r\n \"component_criticality\": \"high\",\r\n \"compensating_control\": \"none\",\r\n \"environment\": \"production\",\r\n \"description\": \"Rule R1348 flagged a potential Open redirect (CWE-601) in FeedImporter.\"\r\n}\r\n\r\n# local labels (never sent to Jev)\r\n"]
+[0.255, "o", "reference rubric : EMERGENCY   exposure=4 urgent=True\r\nbaseline severity_only  : STANDARD    exposure=2 urgent=False\r\n"]
+[0.255, "o", "baseline context_points : EMERGENCY   exposure=4 urgent=True\r\n"]
+[0.259, "o", "\u001b[?2004h"]
+[0.259, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

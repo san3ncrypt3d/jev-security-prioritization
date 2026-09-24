@@ -1,26 +1,91 @@
 [
  {
-  "filename": "screenshots/01_setup/clean_project_structure.png",
-  "title": "Project scaffold (before any API call)",
-  "command": "python scripts/show_tree.py 3",
-  "captured_utc": "2026-09-24T00:55:28+00:00",
-  "exit_code": 0,
-  "transcript": "screenshots/transcripts/01_setup__clean_project_structure.txt",
-  "source_artifact": "repository working tree",
+  "filename": "screenshots/01_setup/openrouter_config_redacted.png",
+  "commands": [
+   "cat .env.example",
+   "sed -E 's/=.*/=<redacted>/' .env",
+   "git check-ignore -v .env",
+   "grep -nE '^(ENDPOINT|MODEL|ENV_VAR|TIMEOUT_S|MAX_ATTEMPTS|RETRY_STATUSES) ' src/jev_security/client.py"
+  ],
+  "recording": "screenshots/recordings/01_setup__openrouter_config_redacted.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:27+00:00",
+  "rendered_utc": "2026-09-24T01:03:53+00:00",
+  "source_artifact": ".env.example, .gitignore, src/jev_security/client.py",
   "blog_section": "3. Building the experiment",
-  "caption": "Initial project layout: source package, data, frozen experiment, results and screenshot folders.",
-  "secret_check": "passed"
+  "caption": "Real .env (value masked by sed), .env.example, git ignore check and the pinned model/endpoint constants in client.py.",
+  "secret_check": "passed (recording refused otherwise)"
  },
  {
-  "filename": "screenshots/01_setup/openrouter_config_redacted.png",
-  "title": "Jev / OpenRouter configuration (credential redacted)",
-  "command": "python scripts/show_config.py",
-  "captured_utc": "2026-09-24T00:55:28+00:00",
-  "exit_code": 0,
-  "transcript": "screenshots/transcripts/01_setup__openrouter_config_redacted.txt",
-  "source_artifact": "src/jev_security/client.py",
+  "filename": "screenshots/01_setup/clean_project_structure.png",
+  "commands": [
+   "python scripts/show_tree.py 3",
+   "git log --oneline"
+  ],
+  "recording": "screenshots/recordings/01_setup__clean_project_structure.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:53+00:00",
+  "rendered_utc": "2026-09-24T01:03:54+00:00",
+  "source_artifact": "repository working tree",
   "blog_section": "3. Building the experiment",
-  "caption": "Pinned model, endpoint and request policy. The API key is loaded from .env and never printed.",
-  "secret_check": "passed"
+  "caption": "Project layout right after the freeze commit, before any API call.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/01_setup/frozen_experiment_manifest.png",
+  "commands": [
+   "python scripts/verify_hashes.py",
+   "python -m json.tool experiments/experiment_manifest.json | sed -n '/\"hypotheses\"/,/}/p'"
+  ],
+  "recording": "screenshots/recordings/01_setup__frozen_experiment_manifest.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:55+00:00",
+  "rendered_utc": "2026-09-24T01:03:56+00:00",
+  "source_artifact": "experiments/hashes.json, experiments/experiment_manifest.json",
+  "blog_section": "3. Building the experiment",
+  "caption": "SHA-256 of every frozen artifact and the pre-registered hypotheses, before the smoke test.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/01_setup/dataset_summary.png",
+  "commands": [
+   "python scripts/dataset_summary.py"
+  ],
+  "recording": "screenshots/recordings/01_setup__dataset_summary.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:56+00:00",
+  "rendered_utc": "2026-09-24T01:03:57+00:00",
+  "source_artifact": "data/sca_cases.json, data/sast_cases.json",
+  "blog_section": "4-5. SCA/SAST experiment",
+  "caption": "Cases per experiment and reference-rubric disposition counts (rubric = experimental policy, not ground truth).",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/03_sca/sca_example.png",
+  "commands": [
+   "python scripts/show_case.py sca-contra-high-01 --labels"
+  ],
+  "recording": "screenshots/recordings/03_sca__sca_example.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:57+00:00",
+  "rendered_utc": "2026-09-24T01:03:58+00:00",
+  "source_artifact": "data/sca_cases.json",
+  "blog_section": "4. SCA experiment",
+  "caption": "The exact state sent to Jev. The local labels at the bottom are never sent.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/04_sast/sast_example.png",
+  "commands": [
+   "python scripts/show_case.py sast-contra-low_-01 --labels"
+  ],
+  "recording": "screenshots/recordings/04_sast__sast_example.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:03:58+00:00",
+  "rendered_utc": "2026-09-24T01:03:59+00:00",
+  "source_artifact": "data/sast_cases.json",
+  "blog_section": "5. SAST experiment",
+  "caption": "The exact state sent to Jev. The local labels at the bottom are never sent.",
+  "secret_check": "passed (recording refused otherwise)"
  }
 ]

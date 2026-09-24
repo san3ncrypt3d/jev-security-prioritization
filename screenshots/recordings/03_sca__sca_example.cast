@@ -1,0 +1,11 @@
+{"version": 2, "width": 112, "height": 45, "timestamp": 1790211837, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/show_case.py sca-contra-high-01 --labels"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.223, "o", "python scripts/show_case.py sca-contra-high-01 --labels\r\n"]
+[0.223, "o", "\u001b[?2004l\r"]
+[0.252, "o", "# state sent to Jev for sca-contra-high-01 (experiment=contradiction)\r\n"]
+[0.252, "o", "{\r\n \"finding_id\": \"OSV-363321\",\r\n \"finding_type\": \"open-source dependency vulnerability (SCA)\",\r\n \"package\": \"opaline-xml\",\r\n \"installed_version\": \"4.9.6\",\r\n \"dependency_type\": \"transitive\",\r\n \"vulnerability_class\": \"server-side request forgery (SSRF)\",\r\n \"cvss_v3_base_score\": 9.8,\r\n \"cvss_severity\": \"CRITICAL\",\r\n \"epss_probability\": 0.004,\r\n \"epss_band\": \"very low\",\r\n \"cisa_kev_listed\": false,\r\n \"public_exploit\": \"none known\",\r\n \"internet_exposed\": false,\r\n \"vulnerable_function_reachable\": false,\r\n \"asset_criticality\": \"critical\",\r\n \"handles_sensitive_data\": false,\r\n \"privileges_required\": \"none\",\r\n \"attack_complexity\": \"high\",\r\n \"fix_available\": false,\r\n"]
+[0.252, "o", " \"compensating_control\": \"partial: rate limiting only; no filtering of the vulnerable request pattern\",\r\n \"environment\": \"staging\",\r\n \"description\": \"opaline-xml 4.9.6 is reported to contain a server-side request forgery (SSRF) weakness in its fetchRemote() function. The package is included in the svc-orion service.\"\r\n}\r\n"]
+[0.252, "o", "\r\n# local labels (never sent to Jev)\r\nreference rubric : DEFER       exposure=0 urgent=False\r\n"]
+[0.252, "o", "baseline severity_only  : EMERGENCY   exposure=4 urgent=True\r\nbaseline context_points : STANDARD    exposure=1 urgent=False\r\n"]
+[0.256, "o", "\u001b[?2004h"]
+[0.256, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

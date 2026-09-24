@@ -1,0 +1,10 @@
+{
+  "name": "terminal-screenshot",
+  "private": true,
+  "type": "module",
+  "description": "Renders recorded real-PTY byte streams with xterm.js in headless Chrome",
+  "dependencies": {
+    "@xterm/xterm": "5.5.0",
+    "puppeteer-core": "23.11.1"
+  }
+}
