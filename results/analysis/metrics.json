@@ -271,12 +271,14 @@
    "mcnemar_jev_vs_b0": {
     "jev_right_baseline_wrong": 45,
     "jev_wrong_baseline_right": 11,
-    "p_value": 0.0
+    "p_value": 0.0,
+    "p_value_sci": "5.38e-06"
    },
    "mcnemar_jev_vs_b1": {
     "jev_right_baseline_wrong": 26,
     "jev_wrong_baseline_right": 23,
-    "p_value": 0.7754
+    "p_value": 0.7754,
+    "p_value_sci": "7.75e-01"
    },
    "jev_choice_distribution": {
     "DEFER": 42,
@@ -556,12 +558,14 @@
    "mcnemar_jev_vs_b0": {
     "jev_right_baseline_wrong": 40,
     "jev_wrong_baseline_right": 9,
-    "p_value": 0.0
+    "p_value": 0.0,
+    "p_value_sci": "9.26e-06"
    },
    "mcnemar_jev_vs_b1": {
     "jev_right_baseline_wrong": 36,
     "jev_wrong_baseline_right": 23,
-    "p_value": 0.1175
+    "p_value": 0.1175,
+    "p_value_sci": "1.17e-01"
    },
    "jev_choice_distribution": {
     "DEFER": 51,
@@ -837,12 +841,14 @@
    "mcnemar_jev_vs_b0": {
     "jev_right_baseline_wrong": 85,
     "jev_wrong_baseline_right": 20,
-    "p_value": 0.0
+    "p_value": 0.0,
+    "p_value_sci": "1.01e-10"
    },
    "mcnemar_jev_vs_b1": {
     "jev_right_baseline_wrong": 62,
     "jev_wrong_baseline_right": 46,
-    "p_value": 0.1486
+    "p_value": 0.1486,
+    "p_value_sci": "1.49e-01"
    },
    "jev_choice_distribution": {
     "DEFER": 93,

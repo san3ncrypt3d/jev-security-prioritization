@@ -249,9 +249,9 @@ for (dom, kind), g in C.groupby(["domain", "variant"]):
 # 4. Inconsistent (conflicting sources) and missing evidence
 # ---------------------------------------------------------------------------
 M = J[J.experiment == "main"]
-I = J[J.experiment == "inconsistent"]
+INC = J[J.experiment == "inconsistent"]
 OUT["inconsistent"] = {}
-for dom, g in I.groupby("domain"):
+for dom, g in INC.groupby("domain"):
     mm = M[M.domain == dom]
     OUT["inconsistent"][dom] = {
         "n": int(len(g)),
@@ -264,7 +264,7 @@ for dom, g in I.groupby("domain"):
         "stakes_urgency_undetermined": int(g.ref_urgent.isna().sum()),
     }
 table(
-    I[
+    INC[
         [
             "case_id",
             "domain",
@@ -403,12 +403,12 @@ for (dom, attr), g in CF.groupby(["domain", "attribute"]):
         "attribute": attr,
         "n_pairs": len(lo),
         "mean_d_noul": dn.mean(),
-        "d_noul_ci_lo": A.boot_ci(lambda i: float(dn[i].mean()), len(dn))[0],
-        "d_noul_ci_hi": A.boot_ci(lambda i: float(dn[i].mean()), len(dn))[1],
+        "d_noul_ci_lo": A.boot_ci(lambda i, dn=dn: float(dn[i].mean()), len(dn))[0],
+        "d_noul_ci_hi": A.boot_ci(lambda i, dn=dn: float(dn[i].mean()), len(dn))[1],
         "share_d_noul_positive": (dn > 0).mean(),
         "mean_d_score": ds.mean(),
-        "d_score_ci_lo": A.boot_ci(lambda i: float(ds[i].mean()), len(ds))[0],
-        "d_score_ci_hi": A.boot_ci(lambda i: float(ds[i].mean()), len(ds))[1],
+        "d_score_ci_lo": A.boot_ci(lambda i, ds=ds: float(ds[i].mean()), len(ds))[0],
+        "d_score_ci_hi": A.boot_ci(lambda i, ds=ds: float(ds[i].mean()), len(ds))[1],
         "mean_d_expected_priority_rank": np.nanmean(der),
         "choice_flip_rate": flips.mean(),
         "rubric_mean_d_exposure": dref.mean(),

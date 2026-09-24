@@ -1,0 +1,8 @@
+{"version": 2, "width": 130, "height": 22, "timestamp": 1790212929, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/report.py stability"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.138, "o", "python scripts/report.py stability"]
+[0.138, "o", "\r\n\u001b[?2004l\r"]
+[0.332, "o", "\r\n== Representation stability vs canonical JSON ==\r\n"]
+[0.333, "o", "domain              variant  n  agreement  mean_abs_d_noul  max_abs_d_noul  mean_abs_d_score\r\n  sast             alt_keys 10      0.700            0.036           0.100             0.221\r\n  sast                prose 10      0.900            0.034           0.090             0.161\r\n  sast reworded_description 10      1.000            0.007           0.020             0.050\r\n   sca             alt_keys 10      0.900            0.046           0.180             0.266\r\n   sca                prose 10      0.800            0.117           0.220             0.330\r\n   sca reworded_description 10      1.000            0.010           0.030             0.043\r\n"]
+[0.333, "o", "\r\nRepeat determinism: {\"n_groups\": 20, \"requests_per_group\": 4, \"groups_with_identical_choice\": 19, \"max_noul_range\": 0.05, \"max_score_range\": 0.12, \"max_any_probability_range\": 0.13, \"mean_noul_range\": 0.021}\r\n"]
+[0.37, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

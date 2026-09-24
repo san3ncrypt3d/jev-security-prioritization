@@ -1,0 +1,17 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]' tabulate
+      - run: ruff check src scripts tests
+      - run: python scripts/verify_hashes.py
+      - run: pytest -q
+      # Recompute every metric and figure from the committed raw responses (no API key needed).
+      - run: python scripts/analyze.py && python scripts/analyze_scale.py > /dev/null && python scripts/analyze_frontier.py > /dev/null && python scripts/make_figures.py && python scripts/build_claim_provenance.py
+      - run: python scripts/secret_scan.py

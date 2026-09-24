@@ -189,5 +189,190 @@
   "blog_section": "6-9. Counterfactual / missing / adversarial",
   "caption": "Gate 7: counterfactual, missing-evidence, adversarial, paraphrase and repeat requests run live.",
   "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/07_analysis/primary_metrics.png",
+  "commands": [
+   "python scripts/report.py primary"
+  ],
+  "recording": "screenshots/recordings/07_analysis__primary_metrics.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:03+00:00",
+  "rendered_utc": "2026-09-24T01:22:03+00:00",
+  "source_artifact": "results/tables/primary_metrics.csv, results/analysis/metrics.json",
+  "blog_section": "4-5. SCA/SAST results",
+  "caption": "Primary metrics per domain for Jev and both deterministic baselines, with bootstrap CIs and McNemar tests.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/07_analysis/severity_vs_context_cases.png",
+  "commands": [
+   "python scripts/report.py contradiction"
+  ],
+  "recording": "screenshots/recordings/07_analysis__severity_vs_context_cases.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:04+00:00",
+  "rendered_utc": "2026-09-24T01:22:05+00:00",
+  "source_artifact": "results/tables/contradiction_cases.csv",
+  "blog_section": "7. When severity and context disagreed",
+  "caption": "All 24 conflict cases: severity-only baseline, rubric reference and Jev's choice.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/05_counterfactual/attribute_sensitivity.png",
+  "commands": [
+   "python scripts/report.py counterfactual"
+  ],
+  "recording": "screenshots/recordings/05_counterfactual__attribute_sensitivity.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:05+00:00",
+  "rendered_utc": "2026-09-24T01:22:06+00:00",
+  "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+  "blog_section": "6. What actually moved Jev's decisions",
+  "caption": "Matched counterfactual pairs: mean change in P(urgent) and expected exposure score per attribute, vs the rubric's change.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/05_counterfactual/missing_evidence_results.png",
+  "commands": [
+   "python scripts/report.py missing"
+  ],
+  "recording": "screenshots/recordings/05_counterfactual__missing_evidence_results.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:07+00:00",
+  "rendered_utc": "2026-09-24T01:22:07+00:00",
+  "source_artifact": "results/tables/missing_summary.csv",
+  "blog_section": "8. Missing evidence",
+  "caption": "One field made unknown or omitted at a time, compared with the same case with the field known.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/06_adversarial/adversarial_text_results.png",
+  "commands": [
+   "python scripts/report.py adversarial"
+  ],
+  "recording": "screenshots/recordings/06_adversarial__adversarial_text_results.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:08+00:00",
+  "rendered_utc": "2026-09-24T01:22:09+00:00",
+  "source_artifact": "results/tables/adversarial_summary.csv",
+  "blog_section": "9. Can finding text manipulate the decision?",
+  "caption": "Untrusted description text vs the identical clean case.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/07_analysis/stability_and_repeat.png",
+  "commands": [
+   "python scripts/report.py stability"
+  ],
+  "recording": "screenshots/recordings/07_analysis__stability_and_repeat.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:22:09+00:00",
+  "rendered_utc": "2026-09-24T01:22:10+00:00",
+  "source_artifact": "results/tables/paraphrase_summary.csv, results/tables/repeat_determinism.csv",
+  "blog_section": "10. Calibration and confidence / stability",
+  "caption": "Representation stability (reworded, re-keyed, prose) and byte-identical repeat requests.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/04_sast/sast_experiment_progress_50.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase sast_main --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/04_sast__sast_experiment_completed.cast",
+  "frame": "until 'sast_main: 50/122' (occurrence 1)",
+  "recorded_utc": "2026-09-24T01:07:00+00:00",
+  "rendered_utc": "2026-09-24T01:23:31+00:00",
+  "source_artifact": "screenshots/recordings/04_sast__sast_experiment_completed.cast",
+  "blog_section": "5. SAST experiment",
+  "caption": "SAST main phase mid-run (frame from the real recording at 50/122).",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/05_counterfactual/secondary_experiments_progress_300.png",
+  "commands": [
+   "python scripts/verify_hashes.py | tail -1",
+   "python scripts/run_experiment.py --phase secondary --run-id run-v1.0.0"
+  ],
+  "recording": "screenshots/recordings/05_counterfactual__secondary_experiments_completed.cast",
+  "frame": "until 'secondary: 300/634' (occurrence 1)",
+  "recorded_utc": "2026-09-24T01:13:08+00:00",
+  "rendered_utc": "2026-09-24T01:23:31+00:00",
+  "source_artifact": "screenshots/recordings/05_counterfactual__secondary_experiments_completed.cast",
+  "blog_section": "6-9. Counterfactual / missing / adversarial",
+  "caption": "Secondary phase mid-run (frame at 300/634 requests).",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/scale_50k_run.png",
+  "commands": [
+   "python scripts/scale_run.py run"
+  ],
+  "recording": "screenshots/recordings/08_final__scale_50k_run.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:40:14+00:00",
+  "rendered_utc": "2026-09-24T01:40:15+00:00",
+  "source_artifact": "results/raw/scale-v1.1/",
+  "blog_section": "11. Cost and performance",
+  "caption": "The 50,000-finding scale run (v1.1 addendum): live progress, throughput and cumulative cost.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/frontier_comparison_run.png",
+  "commands": [
+   "python scripts/frontier_run.py run"
+  ],
+  "recording": "screenshots/recordings/08_final__frontier_comparison_run.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:50:40+00:00",
+  "rendered_utc": "2026-09-24T01:50:41+00:00",
+  "source_artifact": "results/raw/frontier-v1.2/",
+  "blog_section": "11. Cost and performance",
+  "caption": "The frontier comparison run live (v1.2.1): Jev and three frontier chat models on the same 40 cases, interleaved per case.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/scale_50k_results.png",
+  "commands": [
+   "python scripts/report.py scale"
+  ],
+  "recording": "screenshots/recordings/08_final__scale_50k_results.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:53:27+00:00",
+  "rendered_utc": "2026-09-24T01:53:28+00:00",
+  "source_artifact": "results/analysis/scale_metrics.json",
+  "blog_section": "11. Cost and performance",
+  "caption": "The 50k scale run: throughput, latency, tokens, cost, errors and uniform-sample agreement.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/total_usage_cost.png",
+  "commands": [
+   "python scripts/report.py totals",
+   "python scripts/report.py cost"
+  ],
+  "recording": "screenshots/recordings/08_final__total_usage_cost.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:53:29+00:00",
+  "rendered_utc": "2026-09-24T01:53:30+00:00",
+  "source_artifact": "results/analysis/*.json",
+  "blog_section": "11. Cost and performance",
+  "caption": "Total usage and cost across all experiments, from the analysis artifacts.",
+  "secret_check": "passed (recording refused otherwise)"
+ },
+ {
+  "filename": "screenshots/08_final/frontier_comparison_results.png",
+  "commands": [
+   "python scripts/analyze_frontier.py > /dev/null && python scripts/report.py frontier"
+  ],
+  "recording": "screenshots/recordings/08_final__frontier_comparison_results.cast",
+  "frame": "end of session",
+  "recorded_utc": "2026-09-24T01:53:46+00:00",
+  "rendered_utc": "2026-09-24T01:53:47+00:00",
+  "source_artifact": "results/tables/frontier_comparison.csv",
+  "blog_section": "11. Cost and performance",
+  "caption": "Jev vs three frontier chat models on the same 40 cases: latency, tokens, cost, and small-n agreement.",
+  "secret_check": "passed (recording refused otherwise)"
  }
 ]

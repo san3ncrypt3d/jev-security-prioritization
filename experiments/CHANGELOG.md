@@ -16,3 +16,20 @@ Added after v1.0 completed, at the user's request, to show throughput and cost a
 questions/rubric/baselines/renderer, 8 concurrent workers, hard budget stop $3.50. The user approved
 the ~$2.60 estimate, which exceeded the original $1 gate. Manifest: `experiments/v1.1_scale_manifest.json`.
 This addendum does not change any v1.0 number.
+
+## v1.2.0-frontier-addendum
+Added at the user's request to compare decision latency, run time and cost with frontier chat
+models (anthropic/claude-sonnet-5, openai/gpt-6-sol, google/gemini-3.8-flash) on 40 stratified
+v1.0 main cases, with Jev re-run on the same cases in the same time window. Same states and
+verbatim question definitions, sent as a JSON-answer prompt through OpenRouter chat completions
+(reasoning effort minimal). The user chose this option (est. $0.80; hard stop $1.20). Accuracy on
+40 cases is descriptive only. Manifest: `experiments/v1.2_frontier_manifest.json`.
+
+## v1.2.1-frontier-addendum (bug fix, before any frontier result was observed)
+The v1.2.0 run crashed on its first call: the Jev record's `effort` label was "n/a", and the "/"
+made the raw-record filename an invalid path. That one Jev request (case sca-main-085) was sent
+and billed (~$0.00005), but its response was lost before it could be saved, so it was never
+observed. One frontier request (google/gemini-3.8-flash on the same case, first in that case's
+shuffled order) completed and was saved normally before the crash; it is kept and not re-sent. Fix: the label is now "none". v1.2.0's manifest is
+kept unchanged; v1.2.1's manifest covers the fixed files. The crash is preserved in
+`screenshots/recordings/08_final__frontier_v1.2.0_crash.cast`.

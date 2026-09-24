@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import math
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -179,7 +178,12 @@ def mcnemar_exact(a_correct, b_correct):
     a, b = np.asarray(a_correct, bool), np.asarray(b_correct, bool)
     n01, n10 = int((a & ~b).sum()), int((~a & b).sum())
     p = binomtest(n01, n01 + n10, 0.5).pvalue if n01 + n10 else 1.0
-    return {"jev_right_baseline_wrong": n01, "jev_wrong_baseline_right": n10, "p_value": float(p)}
+    return {
+        "jev_right_baseline_wrong": n01,
+        "jev_wrong_baseline_right": n10,
+        "p_value": float(p),
+        "p_value_sci": f"{p:.2e}",
+    }
 
 
 def disposition_metrics(ref: pd.Series, pred: pd.Series) -> dict:

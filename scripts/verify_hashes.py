@@ -16,5 +16,14 @@ for p, want in h["sha256"].items():
     bad += not ok
     print(f"  {'OK  ' if ok else 'DIFF'} {want[:16]}…  {p}")
 print(f"manifest sha256: {sha256_file(ROOT / 'experiments/experiment_manifest.json')}")
+v11 = ROOT / "experiments/v1.1_scale_manifest.json"
+if v11.exists():
+    import json
+
+    print("v1.1 scale addendum:")
+    for p, want in json.loads(v11.read_text())["sha256"].items():
+        ok = sha256_file(ROOT / p) == want
+        bad += not ok
+        print(f"  {'OK  ' if ok else 'DIFF'} {want[:16]}…  {p}")
 print("ALL FROZEN ARTIFACTS MATCH" if not bad else f"{bad} ARTIFACT(S) CHANGED")
 sys.exit(1 if bad else 0)

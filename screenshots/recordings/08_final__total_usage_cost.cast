@@ -1,0 +1,9 @@
+{"version": 2, "width": 100, "height": 50, "timestamp": 1790214809, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/report.py totals", "python scripts/report.py cost"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.126, "o", "python scripts/report.py totals\r\n\u001b[?2004l\r"]
+[0.317, "o", "experiment                                 ok requests   input tokens    cost USD\r\nv1.0 benchmark + smoke (Jev)                       879      1,087,741      0.0457\r\nv1.1 scale run (Jev)                            49,998     62,025,468      2.6051\r\nv1.2 frontier comparison (all 4 models)            160              -      0.3620\r\n   of which Jev                                     40              -      0.0021\r\nTOTAL (successful, billed responses)                                       3.0128\r\n"]
+[0.355, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.473, "o", "python scripts/report.py cost"]
+[0.473, "o", "\r\n\u001b[?2004l\r"]
+[0.662, "o", "{\r\n \"requests_total_incl_smoke\": 879,\r\n \"requests_ok\": 879,\r\n \"requests_failed\": 0,\r\n \"model_snapshots\": {\r\n  \"typesafe/jev-1.13-20260917\": 879\r\n },\r\n \"providers\": {\r\n  \"TypeSafe\": 879\r\n },\r\n \"input_tokens_total\": 1087741,\r\n \"output_tokens_total\": 86878,\r\n \"input_tokens_mean\": 1237.4755,\r\n \"cost_total_usd\": 0.0457,\r\n \"cost_per_1000_requests_usd\": 0.052,\r\n \"latency_ms\": {\r\n  \"p50\": 191.5,\r\n  \"p90\": 279.74,\r\n  \"p99\": 470.968,\r\n  \"max\": 1871.6,\r\n  \"min\": 125.6,\r\n  \"mean\": 210.6681\r\n }\r\n}\r\n"]
+[0.699, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

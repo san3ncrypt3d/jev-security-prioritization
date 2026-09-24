@@ -1,0 +1,6 @@
+{"version": 2, "width": 130, "height": 50, "timestamp": 1790214807, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/report.py scale"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.122, "o", "python scripts/report.py scale\r\n\u001b[?2004l\r"]
+[0.338, "o", "{\r\n \"n_findings_planned\": 50000,\r\n \"n_ok\": 49998,\r\n \"n_findings_without_success\": 2,\r\n \"errors_by_status\": {\r\n  \"503\": 1,\r\n  \"520\": 2\r\n },\r\n \"model_snapshots\": {\r\n  \"typesafe/jev-1.13-20260917\": 49998\r\n },\r\n \"input_tokens_total\": 62025468,\r\n \"cost_total_usd\": 2.6050696560000004,\r\n \"cost_per_1000_usd\": 0.052103477259090376,\r\n \"main_session\": {\r\n  \"requests\": 49302,\r\n  \"wall_minutes\": 21.411033333333332,\r\n  \"requests_per_second\": 38.37740977782483,\r\n  \"workers\": 8\r\n },\r\n \"latency_ms\": {\r\n  \"p50\": 193.6,\r\n  \"p90\": 272.8,\r\n  \"p99\": 436.3,\r\n  \"max\": 1948.2,\r\n  \"min\": 115.9\r\n }\r\n}\r\n"]
+[0.338, "o", "uniform-sample agreement: Jev 0.694, B0 0.259, B1 0.386; urgency AUC 0.968, Brier 0.090, ECE 0.223\r\n"]
+[0.375, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

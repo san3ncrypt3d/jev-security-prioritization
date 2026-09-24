@@ -1,0 +1,6 @@
+{"version": 2, "width": 150, "height": 16, "timestamp": 1790214826, "env": {"TERM": "xterm-256color", "SHELL": "bash"}, "commands": ["python scripts/analyze_frontier.py > /dev/null && python scripts/report.py frontier"]}
+[0.0, "o", "\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]
+[0.337, "o", "python scripts/analyze_frontier.py > /dev/null && python scripts/report.py frontier\r\n\u001b[?2004l\r"]
+[1.382, "o", "\r\n== Same 40 cases, same questions: Jev vs frontier chat models (accuracy columns: small n) ==\r\n"]
+[1.383, "o", "                    model  n  valid p50_ms p90_ms x_slower_than_jev in_tok out_tok usd_per_decision usd_per_50k disp_acc_n40 urgency_auc_n40\r\n        typesafe/jev-1.13 40     40    186    332              1.0x   1236      99        $0.000052       $2.60        0.550           0.935\r\n         openai/gpt-6-sol 40     40   2527   3237             13.6x   1025     112        $0.003405     $170.25        0.475           0.924\r\nanthropic/claude-sonnet-5 40     40   2592   3287             14.0x   1600     110        $0.004302     $215.10        0.775           0.966\r\n  google/gemini-3.8-flash 40     40   5583   8807             30.1x   1026     139        $0.001292      $64.58        0.550           0.964\r\n"]
+[1.421, "o", "\u001b[?2004h\u001b]133;A\u0007(.venv) \u001b[01;34m~/openrouter\u001b[00m$ "]

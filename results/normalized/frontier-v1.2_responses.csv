@@ -1,0 +1,161 @@
+case_id,domain,model,effort,ok,latency_ms,served_model,provider,cost,ref_disp,ref_exp,ref_urgent,input_tokens,output_tokens,reasoning_tokens,valid,p_urgent,disposition,exposure
+sast-main-001,sast,anthropic/claude-sonnet-5,minimal,True,4297.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004376,ACCELERATED,3,True,1613,115,0,True,0.75,ACCELERATED,3.0
+sast-main-001,sast,google/gemini-3.8-flash,minimal,True,5423.1,google/gemini-3.8-flash,Google,0.0016935,ACCELERATED,3,True,1028,246,139,True,0.85,ACCELERATED,3.0
+sast-main-001,sast,openai/gpt-6-sol,minimal,True,1832.1,openai/gpt-6-sol,OpenAI,0.003546,ACCELERATED,3,True,1027,98,25,True,0.91,ACCELERATED,3.0
+sast-main-001,sast,typesafe/jev-1.13,none,True,372.0,typesafe/jev-1.13-20260917,TypeSafe,5.2416e-05,ACCELERATED,3,True,1248,100,0,True,0.65,ACCELERATED,2.7
+sast-main-003,sast,anthropic/claude-sonnet-5,minimal,True,2582.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004368,STANDARD,1,False,1619,113,0,True,0.15,STANDARD,2.0
+sast-main-003,sast,google/gemini-3.8-flash,minimal,True,5239.8,google/gemini-3.8-flash,Google,0.0011685,STANDARD,1,False,1033,105,0,True,0.05,DEFER,0.0
+sast-main-003,sast,openai/gpt-6-sol,minimal,True,1696.0,openai/gpt-6-sol,OpenAI,0.0034535,STANDARD,1,False,1030,88,17,True,0.01,DEFER,0.0
+sast-main-003,sast,typesafe/jev-1.13,none,True,164.8,typesafe/jev-1.13-20260917,TypeSafe,5.2836e-05,STANDARD,1,False,1258,98,0,True,0.24,DEFER,1.22
+sast-main-009,sast,anthropic/claude-sonnet-5,minimal,True,2780.9,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004372,DEFER,0,False,1626,112,0,True,0.03,DEFER,0.0
+sast-main-009,sast,google/gemini-3.8-flash,minimal,True,6321.1,google/gemini-3.8-flash,Google,0.0011595,DEFER,0,False,1036,102,0,True,0.0,DEFER,0.0
+sast-main-009,sast,openai/gpt-6-sol,minimal,True,1412.1,openai/gpt-6-sol,OpenAI,0.003261,DEFER,0,False,1037,67,0,True,0.001,DEFER,0.0
+sast-main-009,sast,typesafe/jev-1.13,none,True,242.2,typesafe/jev-1.13-20260917,TypeSafe,5.2752e-05,DEFER,0,False,1256,98,0,True,0.06,DEFER,0.1
+sast-main-016,sast,anthropic/claude-sonnet-5,minimal,True,2959.2,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004318,DEFER,0,False,1599,112,0,True,0.03,DEFER,0.0
+sast-main-016,sast,google/gemini-3.8-flash,minimal,True,6753.3,google/gemini-3.8-flash,Google,0.0011595,DEFER,0,False,1021,105,0,True,0.02,DEFER,0.0
+sast-main-016,sast,openai/gpt-6-sol,minimal,True,2953.7,openai/gpt-6-sol,OpenAI,0.003708,DEFER,0,False,1019,167,96,True,0.01,DEFER,0.0
+sast-main-016,sast,typesafe/jev-1.13,none,True,293.1,typesafe/jev-1.13-20260917,TypeSafe,5.187e-05,DEFER,0,False,1235,98,0,True,0.1,DEFER,0.25
+sast-main-019,sast,anthropic/claude-sonnet-5,minimal,True,2704.4,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00437,DEFER,0,False,1625,112,0,True,0.05,DEFER,1.0
+sast-main-019,sast,google/gemini-3.8-flash,minimal,True,5689.2,google/gemini-3.8-flash,Google,0.0011685,DEFER,0,False,1033,105,0,True,0.01,DEFER,0.0
+sast-main-019,sast,openai/gpt-6-sol,minimal,True,1436.6,openai/gpt-6-sol,OpenAI,0.003271,DEFER,0,False,1033,69,0,True,0.01,DEFER,0.0
+sast-main-019,sast,typesafe/jev-1.13,none,True,148.5,typesafe/jev-1.13-20260917,TypeSafe,5.2206e-05,DEFER,0,False,1243,98,0,True,0.11,DEFER,0.45
+sast-main-022,sast,anthropic/claude-sonnet-5,minimal,True,2397.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00428,ACCELERATED,3,True,1620,104,0,True,0.35,STANDARD,2.0
+sast-main-022,sast,google/gemini-3.8-flash,minimal,True,6303.5,google/gemini-3.8-flash,Google,0.00116625,ACCELERATED,3,True,1030,105,0,True,0.15,STANDARD,2.0
+sast-main-022,sast,openai/gpt-6-sol,minimal,True,2504.1,openai/gpt-6-sol,OpenAI,0.003661,ACCELERATED,3,True,1029,109,39,True,0.08,STANDARD,2.0
+sast-main-022,sast,typesafe/jev-1.13,none,True,173.2,typesafe/jev-1.13-20260917,TypeSafe,5.2332e-05,ACCELERATED,3,True,1246,100,0,True,0.61,ACCELERATED,2.8
+sast-main-024,sast,anthropic/claude-sonnet-5,minimal,True,2377.2,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004366,STANDARD,1,False,1618,113,0,True,0.1,STANDARD,1.0
+sast-main-024,sast,google/gemini-3.8-flash,minimal,True,4444.7,google/gemini-3.8-flash,Google,0.001173,STANDARD,1,False,1034,106,0,True,0.05,DEFER,0.0
+sast-main-024,sast,openai/gpt-6-sol,minimal,True,2599.7,openai/gpt-6-sol,OpenAI,0.0035135,STANDARD,1,False,1030,94,23,True,0.01,DEFER,0.0
+sast-main-024,sast,typesafe/jev-1.13,none,True,144.3,typesafe/jev-1.13-20260917,TypeSafe,5.2962e-05,STANDARD,1,False,1261,98,0,True,0.19,DEFER,1.51
+sast-main-032,sast,anthropic/claude-sonnet-5,minimal,True,2906.9,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004364,STANDARD,1,False,1617,113,0,True,0.1,STANDARD,1.0
+sast-main-032,sast,google/gemini-3.8-flash,minimal,True,4649.2,google/gemini-3.8-flash,Google,0.00149175,STANDARD,1,False,1034,191,109,True,0.02,DEFER,0.0
+sast-main-032,sast,openai/gpt-6-sol,minimal,True,1908.1,openai/gpt-6-sol,OpenAI,0.003466,STANDARD,1,False,1035,88,17,True,0.01,DEFER,0.0
+sast-main-032,sast,typesafe/jev-1.13,none,True,213.2,typesafe/jev-1.13-20260917,TypeSafe,5.2584e-05,STANDARD,1,False,1252,98,0,True,0.17,DEFER,0.78
+sast-main-035,sast,anthropic/claude-sonnet-5,minimal,True,2278.8,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004392,DEFER,0,False,1631,113,0,True,0.3,STANDARD,2.0
+sast-main-035,sast,google/gemini-3.8-flash,minimal,True,9759.5,google/gemini-3.8-flash,Google,0.00117825,DEFER,0,False,1041,106,0,True,0.05,DEFER,0.0
+sast-main-035,sast,openai/gpt-6-sol,minimal,True,2528.8,openai/gpt-6-sol,OpenAI,0.003746,DEFER,0,False,1039,115,44,True,0.12,REVIEW,1.0
+sast-main-035,sast,typesafe/jev-1.13,none,True,848.8,typesafe/jev-1.13-20260917,TypeSafe,5.2794e-05,DEFER,0,False,1257,99,0,True,0.25,STANDARD,1.61
+sast-main-036,sast,anthropic/claude-sonnet-5,minimal,True,2337.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004236,EMERGENCY,4,True,1588,106,0,True,0.7,ACCELERATED,3.0
+sast-main-036,sast,google/gemini-3.8-flash,minimal,True,10595.9,google/gemini-3.8-flash,Google,0.00115425,EMERGENCY,4,True,1014,105,0,True,0.45,STANDARD,2.0
+sast-main-036,sast,openai/gpt-6-sol,minimal,True,4031.5,openai/gpt-6-sol,OpenAI,0.003742,EMERGENCY,4,True,1011,172,99,True,0.58,ACCELERATED,2.0
+sast-main-036,sast,typesafe/jev-1.13,none,True,245.8,typesafe/jev-1.13-20260917,TypeSafe,5.1702e-05,EMERGENCY,4,True,1231,100,0,True,0.79,EMERGENCY,3.38
+sast-main-041,sast,anthropic/claude-sonnet-5,minimal,True,3253.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004266,EMERGENCY,4,True,1603,106,0,True,0.85,EMERGENCY,4.0
+sast-main-041,sast,google/gemini-3.8-flash,minimal,True,6492.9,google/gemini-3.8-flash,Google,0.001167,EMERGENCY,4,True,1021,107,0,True,0.88,ACCELERATED,3.0
+sast-main-041,sast,openai/gpt-6-sol,minimal,True,3863.8,openai/gpt-6-sol,OpenAI,0.003408,EMERGENCY,4,True,1019,137,64,True,0.97,ACCELERATED,3.0
+sast-main-041,sast,typesafe/jev-1.13,none,True,228.4,typesafe/jev-1.13-20260917,TypeSafe,5.1912e-05,EMERGENCY,4,True,1236,100,0,True,0.8,EMERGENCY,3.78
+sast-main-048,sast,anthropic/claude-sonnet-5,minimal,True,2559.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004254,STANDARD,2,False,1607,104,0,True,0.25,STANDARD,2.0
+sast-main-048,sast,google/gemini-3.8-flash,minimal,True,5581.3,google/gemini-3.8-flash,Google,0.001164,STANDARD,2,False,1027,105,0,True,0.15,STANDARD,1.0
+sast-main-048,sast,openai/gpt-6-sol,minimal,True,2144.9,openai/gpt-6-sol,OpenAI,0.003142,STANDARD,2,False,1026,109,39,True,0.12,STANDARD,2.0
+sast-main-048,sast,typesafe/jev-1.13,none,True,216.4,typesafe/jev-1.13-20260917,TypeSafe,5.2206e-05,STANDARD,2,False,1243,99,0,True,0.54,STANDARD,2.19
+sast-main-057,sast,anthropic/claude-sonnet-5,minimal,True,2205.2,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004384,STANDARD,1,False,1627,113,0,True,0.15,STANDARD,1.0
+sast-main-057,sast,google/gemini-3.8-flash,minimal,True,4274.1,google/gemini-3.8-flash,Google,0.00108675,STANDARD,1,False,1039,82,0,True,0.05,DEFER,0.0
+sast-main-057,sast,openai/gpt-6-sol,minimal,True,2867.7,openai/gpt-6-sol,OpenAI,0.0034985,STANDARD,1,False,1036,91,20,True,0.01,DEFER,0.0
+sast-main-057,sast,typesafe/jev-1.13,none,True,186.8,typesafe/jev-1.13-20260917,TypeSafe,5.25e-05,STANDARD,1,False,1250,98,0,True,0.14,DEFER,0.73
+sast-main-058,sast,anthropic/claude-sonnet-5,minimal,True,3653.2,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004268,STANDARD,2,False,1614,104,0,True,0.25,STANDARD,2.0
+sast-main-058,sast,google/gemini-3.8-flash,minimal,True,7622.8,google/gemini-3.8-flash,Google,0.00107925,STANDARD,2,False,1029,82,0,True,0.25,STANDARD,2.0
+sast-main-058,sast,openai/gpt-6-sol,minimal,True,4009.6,openai/gpt-6-sol,OpenAI,0.0042285,STANDARD,2,False,1028,166,96,True,0.34,STANDARD,2.0
+sast-main-058,sast,typesafe/jev-1.13,none,True,153.8,typesafe/jev-1.13-20260917,TypeSafe,5.2374e-05,STANDARD,2,False,1247,99,0,True,0.26,STANDARD,1.72
+sast-main-065,sast,anthropic/claude-sonnet-5,minimal,True,2389.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004274,EMERGENCY,4,True,1607,106,0,True,0.85,EMERGENCY,4.0
+sast-main-065,sast,google/gemini-3.8-flash,minimal,True,16714.3,google/gemini-3.8-flash,Google AI Studio,0.0011685,EMERGENCY,4,True,1023,107,0,True,0.88,ACCELERATED,3.0
+sast-main-065,sast,openai/gpt-6-sol,minimal,True,2367.5,openai/gpt-6-sol,OpenAI,0.003044,EMERGENCY,4,True,1022,100,27,True,0.96,ACCELERATED,3.0
+sast-main-065,sast,typesafe/jev-1.13,none,True,164.4,typesafe/jev-1.13-20260917,TypeSafe,5.208e-05,EMERGENCY,4,True,1240,100,0,True,0.89,ACCELERATED,3.89
+sast-main-066,sast,anthropic/claude-sonnet-5,minimal,True,3549.5,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004308,STANDARD,2,False,1624,106,0,True,0.35,ACCELERATED,2.0
+sast-main-066,sast,google/gemini-3.8-flash,minimal,True,10834.4,google/gemini-3.8-flash,Google,0.00216375,STANDARD,2,False,1035,370,266,True,0.3,STANDARD,2.0
+sast-main-066,sast,openai/gpt-6-sol,minimal,True,2526.0,openai/gpt-6-sol,OpenAI,0.003556,STANDARD,2,False,1035,97,27,True,0.18,STANDARD,2.0
+sast-main-066,sast,typesafe/jev-1.13,none,True,183.5,typesafe/jev-1.13-20260917,TypeSafe,5.2458e-05,STANDARD,2,False,1249,99,0,True,0.55,STANDARD,2.1
+sast-main-080,sast,anthropic/claude-sonnet-5,minimal,True,2985.8,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00436,EMERGENCY,4,True,1605,115,0,True,0.97,EMERGENCY,4.0
+sast-main-080,sast,google/gemini-3.8-flash,minimal,True,6001.0,google/gemini-3.8-flash,Google,0.00117,EMERGENCY,4,True,1025,107,0,True,0.95,EMERGENCY,4.0
+sast-main-080,sast,openai/gpt-6-sol,minimal,True,2804.0,openai/gpt-6-sol,OpenAI,0.003068,EMERGENCY,4,True,1024,102,30,True,0.99,EMERGENCY,4.0
+sast-main-080,sast,typesafe/jev-1.13,none,True,138.3,typesafe/jev-1.13-20260917,TypeSafe,5.229e-05,EMERGENCY,4,True,1245,100,0,True,0.94,EMERGENCY,3.97
+sast-main-084,sast,anthropic/claude-sonnet-5,minimal,True,3085.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00433,STANDARD,2,False,1600,113,0,True,0.35,STANDARD,2.0
+sast-main-084,sast,google/gemini-3.8-flash,minimal,True,5863.2,google/gemini-3.8-flash,Google,0.0018705,STANDARD,2,False,1019,295,190,True,0.15,STANDARD,2.0
+sast-main-084,sast,openai/gpt-6-sol,minimal,True,2478.7,openai/gpt-6-sol,OpenAI,0.002916,STANDARD,2,False,1018,88,18,True,0.12,STANDARD,2.0
+sast-main-084,sast,typesafe/jev-1.13,none,True,179.3,typesafe/jev-1.13-20260917,TypeSafe,5.187e-05,STANDARD,2,False,1235,100,0,True,0.67,ACCELERATED,2.64
+sast-main-094,sast,anthropic/claude-sonnet-5,minimal,True,2854.8,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004226,ACCELERATED,3,True,1583,106,0,True,0.6,ACCELERATED,3.0
+sast-main-094,sast,google/gemini-3.8-flash,minimal,True,6762.7,google/gemini-3.8-flash,Google,0.00116325,ACCELERATED,3,True,1016,107,0,True,0.85,ACCELERATED,3.0
+sast-main-094,sast,openai/gpt-6-sol,minimal,True,2826.5,openai/gpt-6-sol,OpenAI,0.003016,ACCELERATED,3,True,1013,99,26,True,0.82,ACCELERATED,3.0
+sast-main-094,sast,typesafe/jev-1.13,none,True,151.4,typesafe/jev-1.13-20260917,TypeSafe,5.1492e-05,ACCELERATED,3,True,1226,100,0,True,0.73,ACCELERATED,2.81
+sast-main-098,sast,anthropic/claude-sonnet-5,minimal,True,4575.2,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004324,ACCELERATED,3,True,1587,115,0,True,0.7,ACCELERATED,3.0
+sast-main-098,sast,google/gemini-3.8-flash,minimal,True,6153.6,google/gemini-3.8-flash,Google,0.001161,ACCELERATED,3,True,1013,107,0,True,0.85,ACCELERATED,3.0
+sast-main-098,sast,openai/gpt-6-sol,minimal,True,2976.4,openai/gpt-6-sol,OpenAI,0.003078,ACCELERATED,3,True,1014,105,32,True,0.96,ACCELERATED,3.0
+sast-main-098,sast,typesafe/jev-1.13,none,True,155.8,typesafe/jev-1.13-20260917,TypeSafe,5.166e-05,ACCELERATED,3,True,1230,100,0,True,0.58,ACCELERATED,2.54
+sca-main-002,sca,anthropic/claude-sonnet-5,minimal,True,2522.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004304,STANDARD,1,False,1577,115,0,True,0.62,ACCELERATED,3.0
+sca-main-002,sca,google/gemini-3.8-flash,minimal,True,5118.3,google/gemini-3.8-flash,Google,0.0011655,STANDARD,1,False,1019,107,0,True,0.65,ACCELERATED,3.0
+sca-main-002,sca,openai/gpt-6-sol,minimal,True,2465.6,openai/gpt-6-sol,OpenAI,0.003068,STANDARD,1,False,1019,103,30,True,0.91,ACCELERATED,3.0
+sca-main-002,sca,typesafe/jev-1.13,none,True,399.7,typesafe/jev-1.13-20260917,TypeSafe,5.1324e-05,STANDARD,1,False,1222,100,0,True,0.66,ACCELERATED,2.91
+sca-main-009,sca,anthropic/claude-sonnet-5,minimal,True,2678.4,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004302,STANDARD,2,False,1576,115,0,True,0.6,ACCELERATED,3.0
+sca-main-009,sca,google/gemini-3.8-flash,minimal,True,5086.4,google/gemini-3.8-flash,Google,0.00115125,STANDARD,2,False,1010,105,0,True,0.45,STANDARD,2.0
+sca-main-009,sca,openai/gpt-6-sol,minimal,True,2834.0,openai/gpt-6-sol,OpenAI,0.003836,STANDARD,2,False,1013,181,108,True,0.62,ACCELERATED,2.0
+sca-main-009,sca,typesafe/jev-1.13,none,True,183.2,typesafe/jev-1.13-20260917,TypeSafe,5.103e-05,STANDARD,2,False,1215,100,0,True,0.48,ACCELERATED,1.8
+sca-main-014,sca,anthropic/claude-sonnet-5,minimal,True,2431.8,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00422,ACCELERATED,3,True,1580,106,0,True,0.78,ACCELERATED,3.0
+sca-main-014,sca,google/gemini-3.8-flash,minimal,True,4506.1,google/gemini-3.8-flash,Google,0.00116775,ACCELERATED,3,True,1022,107,0,True,0.82,ACCELERATED,3.0
+sca-main-014,sca,openai/gpt-6-sol,minimal,True,2292.4,openai/gpt-6-sol,OpenAI,0.003,ACCELERATED,3,True,1020,96,23,True,0.84,ACCELERATED,3.0
+sca-main-014,sca,typesafe/jev-1.13,none,True,167.6,typesafe/jev-1.13-20260917,TypeSafe,5.1282e-05,ACCELERATED,3,True,1221,100,0,True,0.76,ACCELERATED,2.84
+sca-main-019,sca,anthropic/claude-sonnet-5,minimal,True,2601.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004348,ACCELERATED,3,True,1599,115,0,True,0.75,ACCELERATED,3.0
+sca-main-019,sca,google/gemini-3.8-flash,minimal,True,6546.3,google/gemini-3.8-flash,Google,0.00116925,ACCELERATED,3,True,1024,107,0,True,0.92,ACCELERATED,3.0
+sca-main-019,sca,openai/gpt-6-sol,minimal,True,2016.1,openai/gpt-6-sol,OpenAI,0.003138,ACCELERATED,3,True,1024,109,36,True,0.96,ACCELERATED,3.0
+sca-main-019,sca,typesafe/jev-1.13,none,True,155.6,typesafe/jev-1.13-20260917,TypeSafe,5.1576e-05,ACCELERATED,3,True,1228,100,0,True,0.86,ACCELERATED,2.56
+sca-main-025,sca,anthropic/claude-sonnet-5,minimal,True,2423.7,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004226,STANDARD,1,False,1593,104,0,True,0.15,STANDARD,1.0
+sca-main-025,sca,google/gemini-3.8-flash,minimal,True,3724.0,google/gemini-3.8-flash,Google,0.00116925,STANDARD,1,False,1029,106,0,True,0.03,DEFER,0.0
+sca-main-025,sca,openai/gpt-6-sol,minimal,True,2894.6,openai/gpt-6-sol,OpenAI,0.003571,STANDARD,1,False,1029,100,29,True,0.02,DEFER,0.0
+sca-main-025,sca,typesafe/jev-1.13,none,True,230.9,typesafe/jev-1.13-20260917,TypeSafe,5.1954e-05,STANDARD,1,False,1237,98,0,True,0.22,DEFER,1.46
+sca-main-031,sca,anthropic/claude-sonnet-5,minimal,True,2503.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004216,ACCELERATED,3,True,1578,106,0,True,0.78,ACCELERATED,3.0
+sca-main-031,sca,google/gemini-3.8-flash,minimal,True,8701.6,google/gemini-3.8-flash,Google,0.00107775,ACCELERATED,3,True,1022,83,0,True,0.85,ACCELERATED,3.0
+sca-main-031,sca,openai/gpt-6-sol,minimal,True,2148.3,openai/gpt-6-sol,OpenAI,0.00327,ACCELERATED,3,True,1020,123,50,True,0.88,ACCELERATED,3.0
+sca-main-031,sca,typesafe/jev-1.13,none,True,187.9,typesafe/jev-1.13-20260917,TypeSafe,5.166e-05,ACCELERATED,3,True,1230,99,0,True,0.45,STANDARD,1.83
+sca-main-033,sca,anthropic/claude-sonnet-5,minimal,True,2614.4,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004268,STANDARD,1,False,1614,104,0,True,0.35,STANDARD,2.0
+sca-main-033,sca,google/gemini-3.8-flash,minimal,True,5233.7,google/gemini-3.8-flash,Google,0.001179,STANDARD,1,False,1042,106,0,True,0.15,DEFER,1.0
+sca-main-033,sca,openai/gpt-6-sol,minimal,True,3198.5,openai/gpt-6-sol,OpenAI,0.0035735,STANDARD,1,False,1038,98,27,True,0.02,DEFER,0.0
+sca-main-033,sca,typesafe/jev-1.13,none,True,851.0,typesafe/jev-1.13-20260917,TypeSafe,5.2206e-05,STANDARD,1,False,1243,98,0,True,0.67,DEFER,1.94
+sca-main-043,sca,anthropic/claude-sonnet-5,minimal,True,2548.6,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004318,EMERGENCY,4,True,1584,115,0,True,0.78,ACCELERATED,3.0
+sca-main-043,sca,google/gemini-3.8-flash,minimal,True,5835.2,google/gemini-3.8-flash,Google,0.003381,EMERGENCY,4,True,1023,697,590,True,0.92,EMERGENCY,3.0
+sca-main-043,sca,openai/gpt-6-sol,minimal,True,2640.4,openai/gpt-6-sol,OpenAI,0.003304,EMERGENCY,4,True,1022,126,54,True,0.98,EMERGENCY,4.0
+sca-main-043,sca,typesafe/jev-1.13,none,True,236.6,typesafe/jev-1.13-20260917,TypeSafe,5.1534e-05,EMERGENCY,4,True,1227,100,0,True,0.81,EMERGENCY,2.85
+sca-main-047,sca,anthropic/claude-sonnet-5,minimal,True,2381.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004306,ACCELERATED,3,True,1578,115,0,True,0.55,ACCELERATED,3.0
+sca-main-047,sca,google/gemini-3.8-flash,minimal,True,5324.5,google/gemini-3.8-flash,Google,0.0010755,ACCELERATED,3,True,1014,84,0,True,0.85,ACCELERATED,3.0
+sca-main-047,sca,openai/gpt-6-sol,minimal,True,1925.0,openai/gpt-6-sol,OpenAI,0.00304,ACCELERATED,3,True,1015,101,28,True,0.87,ACCELERATED,3.0
+sca-main-047,sca,typesafe/jev-1.13,none,True,184.6,typesafe/jev-1.13-20260917,TypeSafe,5.1198e-05,ACCELERATED,3,True,1219,100,0,True,0.81,ACCELERATED,3.38
+sca-main-050,sca,anthropic/claude-sonnet-5,minimal,True,2331.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004262,DEFER,0,False,1616,103,0,True,0.1,DEFER,1.0
+sca-main-050,sca,google/gemini-3.8-flash,minimal,True,5413.2,google/gemini-3.8-flash,Google,0.00117375,DEFER,0,False,1040,105,0,True,0.05,DEFER,0.0
+sca-main-050,sca,openai/gpt-6-sol,minimal,True,2407.4,openai/gpt-6-sol,OpenAI,0.003601,DEFER,0,False,1037,101,30,True,0.01,DEFER,0.0
+sca-main-050,sca,typesafe/jev-1.13,none,True,229.6,typesafe/jev-1.13-20260917,TypeSafe,5.2122e-05,DEFER,0,False,1241,98,0,True,0.25,DEFER,0.97
+sca-main-054,sca,anthropic/claude-sonnet-5,minimal,True,2845.0,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004214,EMERGENCY,4,True,1577,106,0,True,0.95,EMERGENCY,4.0
+sca-main-054,sca,google/gemini-3.8-flash,minimal,True,4940.1,google/gemini-3.8-flash,Google,0.00116325,EMERGENCY,4,True,1021,106,0,True,0.98,EMERGENCY,4.0
+sca-main-054,sca,openai/gpt-6-sol,minimal,True,1889.1,openai/gpt-6-sol,OpenAI,0.002944,EMERGENCY,4,True,1017,91,19,True,0.99,EMERGENCY,4.0
+sca-main-054,sca,typesafe/jev-1.13,none,True,167.2,typesafe/jev-1.13-20260917,TypeSafe,5.1114e-05,EMERGENCY,4,True,1217,100,0,True,0.95,EMERGENCY,3.98
+sca-main-058,sca,anthropic/claude-sonnet-5,minimal,True,2399.1,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004204,STANDARD,2,False,1582,104,0,True,0.2,STANDARD,2.0
+sca-main-058,sca,google/gemini-3.8-flash,minimal,True,4205.1,google/gemini-3.8-flash,Google,0.00107775,STANDARD,2,False,1027,82,0,True,0.15,STANDARD,1.0
+sca-main-058,sca,openai/gpt-6-sol,minimal,True,2607.1,openai/gpt-6-sol,OpenAI,0.0036,STANDARD,2,False,1020,156,83,True,0.72,ACCELERATED,2.0
+sca-main-058,sca,typesafe/jev-1.13,none,True,166.5,typesafe/jev-1.13-20260917,TypeSafe,5.166e-05,STANDARD,2,False,1230,99,0,True,0.28,STANDARD,1.25
+sca-main-061,sca,anthropic/claude-sonnet-5,minimal,True,3257.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004314,EMERGENCY,4,True,1582,115,0,True,0.88,EMERGENCY,4.0
+sca-main-061,sca,google/gemini-3.8-flash,minimal,True,4987.6,google/gemini-3.8-flash,Google,0.0011655,EMERGENCY,4,True,1019,107,0,True,0.82,ACCELERATED,3.0
+sca-main-061,sca,openai/gpt-6-sol,minimal,True,2923.1,openai/gpt-6-sol,OpenAI,0.003644,EMERGENCY,4,True,1017,161,88,True,0.94,ACCELERATED,3.0
+sca-main-061,sca,typesafe/jev-1.13,none,True,300.1,typesafe/jev-1.13-20260917,TypeSafe,5.1156e-05,EMERGENCY,4,True,1218,100,0,True,0.78,ACCELERATED,2.74
+sca-main-074,sca,anthropic/claude-sonnet-5,minimal,True,2994.8,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004314,STANDARD,2,False,1582,115,0,True,0.75,ACCELERATED,3.0
+sca-main-074,sca,google/gemini-3.8-flash,minimal,True,5584.7,google/gemini-3.8-flash,Google,0.00117075,STANDARD,2,False,1026,107,0,True,0.85,ACCELERATED,3.0
+sca-main-074,sca,openai/gpt-6-sol,minimal,True,2704.6,openai/gpt-6-sol,OpenAI,0.003276,STANDARD,2,False,1023,123,50,True,0.97,ACCELERATED,3.0
+sca-main-074,sca,typesafe/jev-1.13,none,True,167.5,typesafe/jev-1.13-20260917,TypeSafe,5.1492e-05,STANDARD,2,False,1226,100,0,True,0.77,ACCELERATED,2.62
+sca-main-080,sca,anthropic/claude-sonnet-5,minimal,True,2535.5,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004318,DEFER,0,False,1599,112,0,True,0.05,DEFER,1.0
+sca-main-080,sca,google/gemini-3.8-flash,minimal,True,6307.4,google/gemini-3.8-flash,Google,0.0011685,DEFER,0,False,1033,105,0,True,0.05,STANDARD,1.0
+sca-main-080,sca,openai/gpt-6-sol,minimal,True,1926.6,openai/gpt-6-sol,OpenAI,0.0036835,DEFER,0,False,1034,110,40,True,0.08,STANDARD,2.0
+sca-main-080,sca,typesafe/jev-1.13,none,True,229.5,typesafe/jev-1.13-20260917,TypeSafe,5.1828e-05,DEFER,0,False,1234,99,0,True,0.15,STANDARD,1.31
+sca-main-085,sca,anthropic/claude-sonnet-5,minimal,True,2626.9,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004242,DEFER,0,False,1601,104,0,True,0.15,STANDARD,1.0
+sca-main-085,sca,google/gemini-3.8-flash,minimal,True,3438.6,google/gemini-3.8-flash,Google,0.0011655,DEFER,0,False,1029,105,0,True,0.08,STANDARD,1.0
+sca-main-085,sca,openai/gpt-6-sol,minimal,True,2626.8,openai/gpt-6-sol,OpenAI,0.003721,DEFER,0,False,1029,115,45,True,0.22,STANDARD,2.0
+sca-main-085,sca,typesafe/jev-1.13,none,True,327.8,typesafe/jev-1.13-20260917,TypeSafe,5.166e-05,DEFER,0,False,1230,99,0,True,0.39,STANDARD,1.71
+sca-main-086,sca,anthropic/claude-sonnet-5,minimal,True,2644.5,anthropic/claude-sonnet-5,Claude Platform on AWS,0.0043,EMERGENCY,4,True,1575,115,0,True,0.88,EMERGENCY,4.0
+sca-main-086,sca,google/gemini-3.8-flash,minimal,True,4988.5,google/gemini-3.8-flash,Google,0.0011655,EMERGENCY,4,True,1019,107,0,True,0.88,ACCELERATED,3.0
+sca-main-086,sca,openai/gpt-6-sol,minimal,True,2336.9,openai/gpt-6-sol,OpenAI,0.003036,EMERGENCY,4,True,1018,100,27,True,0.97,ACCELERATED,3.0
+sca-main-086,sca,typesafe/jev-1.13,none,True,161.7,typesafe/jev-1.13-20260917,TypeSafe,5.1198e-05,EMERGENCY,4,True,1219,100,0,True,0.92,EMERGENCY,3.25
+sca-main-090,sca,anthropic/claude-sonnet-5,minimal,True,2392.3,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004364,STANDARD,2,False,1617,113,0,True,0.2,STANDARD,2.0
+sca-main-090,sca,google/gemini-3.8-flash,minimal,True,6563.9,google/gemini-3.8-flash,Google,0.00193425,STANDARD,2,False,1034,309,204,True,0.05,DEFER,0.0
+sca-main-090,sca,openai/gpt-6-sol,minimal,True,2727.4,openai/gpt-6-sol,OpenAI,0.003676,STANDARD,2,False,1035,109,38,True,0.03,DEFER,0.0
+sca-main-090,sca,typesafe/jev-1.13,none,True,276.8,typesafe/jev-1.13-20260917,TypeSafe,5.2122e-05,STANDARD,2,False,1241,98,0,True,0.7,DEFER,2.28
+sca-main-095,sca,anthropic/claude-sonnet-5,minimal,True,2510.6,anthropic/claude-sonnet-5,Claude Platform on AWS,0.00427,STANDARD,1,False,1570,113,0,True,0.1,STANDARD,1.0
+sca-main-095,sca,google/gemini-3.8-flash,minimal,True,4778.2,google/gemini-3.8-flash,Google,0.00106875,STANDARD,1,False,1010,83,0,True,0.05,DEFER,0.0
+sca-main-095,sca,openai/gpt-6-sol,minimal,True,1572.9,openai/gpt-6-sol,OpenAI,0.002908,STANDARD,1,False,1009,89,18,True,0.01,DEFER,0.0
+sca-main-095,sca,typesafe/jev-1.13,none,True,209.3,typesafe/jev-1.13-20260917,TypeSafe,5.0904e-05,STANDARD,1,False,1212,98,0,True,0.18,DEFER,0.83
+sca-main-100,sca,anthropic/claude-sonnet-5,minimal,True,2437.4,anthropic/claude-sonnet-5,Claude Platform on AWS,0.004338,DEFER,0,False,1609,112,0,True,0.1,DEFER,1.0
+sca-main-100,sca,google/gemini-3.8-flash,minimal,True,4385.3,google/gemini-3.8-flash,Google,0.0011685,DEFER,0,False,1028,106,0,True,0.05,DEFER,0.0
+sca-main-100,sca,openai/gpt-6-sol,minimal,True,3584.0,openai/gpt-6-sol,OpenAI,0.003991,DEFER,0,False,1029,142,71,True,0.01,DEFER,0.0
+sca-main-100,sca,typesafe/jev-1.13,none,True,181.9,typesafe/jev-1.13-20260917,TypeSafe,5.1786e-05,DEFER,0,False,1233,98,0,True,0.27,DEFER,1.2

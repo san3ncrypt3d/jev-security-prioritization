@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", ".env"}
+SKIP = {".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", ".env", "node_modules"}
 COLLAPSE_AT = int(sys.argv[2]) if len(sys.argv) > 2 else 8  # dirs with more files are summarized
 MAX_DEPTH = int(sys.argv[1]) if len(sys.argv) > 1 else 3
 

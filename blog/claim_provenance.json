@@ -1,0 +1,1167 @@
+{
+ "generated_by": "scripts/build_claim_provenance.py",
+ "n_claims": 116,
+ "all_verified": true,
+ "claims": [
+  {
+   "claim": "879 API calls",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['requests_total_incl_smoke']",
+   "relevant_fields": "run.requests_total_incl_smoke",
+   "value_in_blog": 879,
+   "recomputed_value": 879,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "1,084 cases needed 878 API calls",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['cases_total']",
+   "relevant_fields": "run.cases_total",
+   "value_in_blog": 1084,
+   "recomputed_value": 1084,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "All 879 benchmark requests came back",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['model_snapshots']['typesafe/jev-1.13-20260917']",
+   "relevant_fields": "run.model_snapshots",
+   "value_in_blog": 879,
+   "recomputed_value": 879,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev chose DEFER with probability 0.71",
+   "source_artifact": "results/raw/smoke/responses/",
+   "calculation": "json.loads(next((ROOT/'results/raw/smoke/responses').glob('*.json')).read_text())['response_body']['answers']['disposition']['probabilities']['DEFER']",
+   "relevant_fields": "answers.disposition.probabilities.DEFER",
+   "value_in_blog": 0.71,
+   "recomputed_value": 0.71,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "1,215 input tokens cost $0.00005103",
+   "source_artifact": "results/raw/smoke/responses/",
+   "calculation": "json.loads(next((ROOT/'results/raw/smoke/responses').glob('*.json')).read_text())['response_body']['usage']['input_tokens']",
+   "relevant_fields": "usage.input_tokens",
+   "value_in_blog": 1215,
+   "recomputed_value": 1215,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**55%** (95% CI 46 to 64%)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['disposition']['accuracy']",
+   "relevant_fields": "primary.sca.jev.disposition.accuracy",
+   "value_in_blog": 0.55,
+   "recomputed_value": 0.5536,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**55%** (95% CI 46 to 64%)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['disposition']['accuracy_ci95'][0]",
+   "relevant_fields": "accuracy_ci95[0]",
+   "value_in_blog": 0.46,
+   "recomputed_value": 0.4643,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**55%** (95% CI 46 to 64%)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['disposition']['accuracy_ci95'][1]",
+   "relevant_fields": "accuracy_ci95[1]",
+   "value_in_blog": 0.64,
+   "recomputed_value": 0.6431,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 25% | 53% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['b0_severity_only']['disposition']['accuracy']",
+   "relevant_fields": "primary.sca.b0",
+   "value_in_blog": 0.25,
+   "recomputed_value": 0.25,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 25% | 53% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['b1_context_points']['disposition']['accuracy']",
+   "relevant_fields": "primary.sca.b1",
+   "value_in_blog": 0.53,
+   "recomputed_value": 0.5268,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 98% | 67% | 93% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['recall@0.5']",
+   "relevant_fields": "primary.sca.jev.urgency.recall@0.5",
+   "value_in_blog": 0.98,
+   "recomputed_value": 0.9783,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 68% | 43% | 68% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['precision@0.5']",
+   "relevant_fields": "precision@0.5",
+   "value_in_blog": 0.68,
+   "recomputed_value": 0.6818,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 0.63 | 1.40 | 0.61 |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['score']['mae']",
+   "relevant_fields": "primary.sca.jev.score.mae",
+   "value_in_blog": 0.63,
+   "recomputed_value": 0.6303,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 0.97 (0.94 to 0.99)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['auc']",
+   "relevant_fields": "primary.sca.jev.urgency.auc",
+   "value_in_blog": 0.97,
+   "recomputed_value": 0.9664,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "McNemar p = 5.4e-6",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['mcnemar_jev_vs_b0']['jev_right_baseline_wrong']",
+   "relevant_fields": "mcnemar_jev_vs_b0",
+   "value_in_blog": 45,
+   "recomputed_value": 45,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "McNemar p = 5.4e-6",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "float(P['sca']['mcnemar_jev_vs_b0']['p_value_sci'])",
+   "relevant_fields": "p_value_sci",
+   "value_in_blog": 5.4e-06,
+   "recomputed_value": 5.38e-06,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "26 vs 23, p = 0.78",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['mcnemar_jev_vs_b1']['p_value']",
+   "relevant_fields": "mcnemar_jev_vs_b1.p_value",
+   "value_in_blog": 0.78,
+   "recomputed_value": 0.7754,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**49%** (95% CI 40 to 58%)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['disposition']['accuracy']",
+   "relevant_fields": "primary.sast.jev.disposition.accuracy",
+   "value_in_blog": 0.49,
+   "recomputed_value": 0.4911,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 21% | 38% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['b1_context_points']['disposition']['accuracy']",
+   "relevant_fields": "primary.sast.b1",
+   "value_in_blog": 0.38,
+   "recomputed_value": 0.375,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 87% | 59% | 100% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['urgency']['recall@0.5']",
+   "relevant_fields": "recall@0.5",
+   "value_in_blog": 0.87,
+   "recomputed_value": 0.8696,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 80% | 36% | 52% |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['b1_context_points']['urgency']['precision']",
+   "relevant_fields": "b1 precision",
+   "value_in_blog": 0.52,
+   "recomputed_value": 0.5227,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 0.56 | 1.63 | 0.92 |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['score']['mae']",
+   "relevant_fields": "score.mae",
+   "value_in_blog": 0.56,
+   "recomputed_value": 0.5583,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| 0.93 (0.88 to 0.97) | n/a | 0.91 |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['urgency']['auc']",
+   "relevant_fields": "urgency.auc",
+   "value_in_blog": 0.93,
+   "recomputed_value": 0.929,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "40 vs 9, p = 9.3e-6",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "float(P['sast']['mcnemar_jev_vs_b0']['p_value_sci'])",
+   "relevant_fields": "p_value_sci",
+   "value_in_blog": 9.3e-06,
+   "recomputed_value": 9.26e-06,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "36 vs 23, p = 0.12",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['mcnemar_jev_vs_b1']['p_value']",
+   "relevant_fields": "p_value",
+   "value_in_blog": 0.12,
+   "recomputed_value": 0.1175,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "false escalation 60%",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['b1_context_points']['disposition']['false_escalation_rate']",
+   "relevant_fields": "false_escalation_rate",
+   "value_in_blog": 0.6,
+   "recomputed_value": 0.5982,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev rarely does (5%)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['disposition']['false_escalation_rate']",
+   "relevant_fields": "false_escalation_rate",
+   "value_in_blog": 0.05,
+   "recomputed_value": 0.0536,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(18 of 42 in SCA, 29 of 45 in SAST)",
+   "source_artifact": "results/tables/confusion_sca_jev.csv",
+   "calculation": "int(T['confusion_sca_jev'].set_index('reference').loc['STANDARD','DEFER'])",
+   "relevant_fields": "STANDARD->DEFER",
+   "value_in_blog": 18,
+   "recomputed_value": 18,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(18 of 42 in SCA, 29 of 45 in SAST)",
+   "source_artifact": "results/tables/confusion_sast_jev.csv",
+   "calculation": "int(T['confusion_sast_jev'].set_index('reference').loc['STANDARD','DEFER'])",
+   "relevant_fields": "STANDARD->DEFER",
+   "value_in_blog": 29,
+   "recomputed_value": 29,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "mostly said ACCELERATED (14 of 24)",
+   "source_artifact": "results/tables/confusion_sast_jev.csv",
+   "calculation": "int(T['confusion_sast_jev'].set_index('reference').loc['EMERGENCY','ACCELERATED'])",
+   "relevant_fields": "EMERGENCY->ACCELERATED",
+   "value_in_blog": 14,
+   "recomputed_value": 14,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "51 times out of 57",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['disagreement_direction']['sast']['jev_lower_priority']",
+   "relevant_fields": "disagreement_direction.sast",
+   "value_in_blog": 51,
+   "recomputed_value": 51,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "27 lower and 20 higher",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['disagreement_direction']['sca']['jev_higher_priority']",
+   "relevant_fields": "disagreement_direction.sca",
+   "value_in_blog": 20,
+   "recomputed_value": 20,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "raised P(urgent) by 0.28 on average in SCA",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','reachable','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": 0.28,
+   "recomputed_value": 0.2833333333333333,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "and 0.29 in SAST",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','reachable','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": 0.29,
+   "recomputed_value": 0.2893333333333333,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "14   of 15 SCA pairs and 11 of 15 SAST pairs",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','reachable','choice_flip_rate')*15",
+   "relevant_fields": "choice_flip_rate",
+   "value_in_blog": 14,
+   "recomputed_value": 13.999999999999998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "14   of 15 SCA pairs and 11 of 15 SAST pairs",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','reachable','choice_flip_rate')*15",
+   "relevant_fields": "choice_flip_rate",
+   "value_in_blog": 11,
+   "recomputed_value": 11.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "+0.28 P(urgent), with 67% of dispositions",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','sanitization','choice_flip_rate')",
+   "relevant_fields": "choice_flip_rate",
+   "value_in_blog": 0.67,
+   "recomputed_value": 0.6666666666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "mean \u0394P(urgent) = -0.003, 1 flip in 15",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','auth','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": -0.003,
+   "recomputed_value": -0.0026666666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "CVSS 5.3 to 9.8 raised P(urgent) by 0.08",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','cvss','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": 0.08,
+   "recomputed_value": 0.0773333333333333,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "flipped   **zero** SCA dispositions",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','cvss','choice_flip_rate')",
+   "relevant_fields": "choice_flip_rate",
+   "value_in_blog": 0,
+   "recomputed_value": 0.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "raised it by 0.12 and flipped 1 of 15",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','severity','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": 0.12,
+   "recomputed_value": 0.1166666666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "KEV listing (+0.09 P(urgent), score +0.15",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','kev','mean_d_noul')",
+   "relevant_fields": "mean_d_noul",
+   "value_in_blog": 0.09,
+   "recomputed_value": 0.0926666666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "versus a rubric change of +0.60",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sca','kev','rubric_mean_d_exposure')",
+   "relevant_fields": "rubric_mean_d_exposure",
+   "value_in_blog": 0.6,
+   "recomputed_value": 0.6,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(score   +0.21 versus rubric +1.53)",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','attacker_controlled','rubric_mean_d_exposure')",
+   "relevant_fields": "rubric_mean_d_exposure",
+   "value_in_blog": 1.53,
+   "recomputed_value": 1.5333333333333334,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(Spearman 0.77 for SCA and 0.74 for SAST",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['counterfactual_rank_agreement']['sca']['spearman_jev_d_score_vs_rubric_d_exposure']",
+   "relevant_fields": "spearman",
+   "value_in_blog": 0.77,
+   "recomputed_value": 0.7748,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "in 14 of 15 pairs for SAST scanner severity",
+   "source_artifact": "results/tables/counterfactual_attribute_effects.csv",
+   "calculation": "cf('sast','severity','share_d_noul_positive')*15",
+   "relevant_fields": "share_d_noul_positive",
+   "value_in_blog": 14,
+   "recomputed_value": 13.999999999999998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "B0 got 0 of 24",
+   "source_artifact": "results/tables/contradiction_cases.csv",
+   "calculation": "int((T['contradiction_cases'].b0_disp == T['contradiction_cases'].ref_disp).sum())",
+   "relevant_fields": "b0 vs ref",
+   "value_in_blog": 0,
+   "recomputed_value": 0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "toward the context in **all 24 cases**",
+   "source_artifact": "results/tables/contradiction_cases.csv",
+   "calculation": "int(T['contradiction_cases'].moved_toward_context.sum())",
+   "relevant_fields": "moved_toward_context",
+   "value_in_blog": 24,
+   "recomputed_value": 24,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "mean P(urgent) of   0.16 in SCA and 0.20 in SAST",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['contradiction']['sca/high_severity_low_context']['mean_noul']",
+   "relevant_fields": "mean_noul",
+   "value_in_blog": 0.16,
+   "recomputed_value": 0.1567,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev chose REVIEW 50% of the time",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['unknown_vs_omitted']['unknown']['selected_review']",
+   "relevant_fields": "selected_review",
+   "value_in_blog": 0.5,
+   "recomputed_value": 0.5,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "put 0.34 more   probability on REVIEW",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['unknown_vs_omitted']['unknown']['d_p_review']",
+   "relevant_fields": "d_p_review",
+   "value_in_blog": 0.34,
+   "recomputed_value": 0.3419,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev chose REVIEW 1 time out of 80",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['unknown_vs_omitted']['omitted']['selected_review']*80",
+   "relevant_fields": "selected_review",
+   "value_in_blog": 1,
+   "recomputed_value": 1.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(+0.002)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['unknown_vs_omitted']['omitted']['d_p_review']",
+   "relevant_fields": "d_p_review",
+   "value_in_blog": 0.002,
+   "recomputed_value": 0.0019,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Unknown reachability sent   every single case to REVIEW",
+   "source_artifact": "results/tables/missing_summary.csv",
+   "calculation": "ms('sast','reachable','unknown','selected_review') + ms('sca','reachable','unknown','selected_review')",
+   "relevant_fields": "selected_review",
+   "value_in_blog": 2.0,
+   "recomputed_value": 2.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Jev picked REVIEW on 32%",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['jev_selected_review_when_ref_review']",
+   "relevant_fields": "jev_selected_review_when_ref_review",
+   "value_in_blog": 0.32,
+   "recomputed_value": 0.3214,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(5 of 16)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['missing']['overall']['jev_review_recall_urgency_stakes']*M['missing']['overall']['n_urgency_stakes']",
+   "relevant_fields": "review recall urgency stakes",
+   "value_in_blog": 5,
+   "recomputed_value": 5.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "raised P(REVIEW) to 0.28 and 0.25",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['inconsistent']['sca']['mean_p_review']",
+   "relevant_fields": "mean_p_review",
+   "value_in_blog": 0.28,
+   "recomputed_value": 0.282,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "only 3 times in 20",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['inconsistent']['sca']['review_selected_rate']*10 + M['inconsistent']['sast']['review_selected_rate']*10",
+   "relevant_fields": "review_selected_rate",
+   "value_in_blog": 3,
+   "recomputed_value": 3.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Mean \u0394P(urgent) was +0.02 for",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['adversarial']['by_variant']['inj_down']['d_noul']",
+   "relevant_fields": "d_noul",
+   "value_in_blog": 0.02,
+   "recomputed_value": 0.0235,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "+0.005 for \"classify as EMERGENCY\"",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['adversarial']['by_variant']['inj_up']['d_noul']",
+   "relevant_fields": "d_noul",
+   "value_in_blog": 0.005,
+   "recomputed_value": 0.0045,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "largest single shift from either was 0.11",
+   "source_artifact": "results/tables/adversarial_pairs.csv",
+   "calculation": "float(T['adversarial_pairs'][T['adversarial_pairs'].variant.str.startswith('inj')].d_noul.abs().max())",
+   "relevant_fields": "d_noul",
+   "value_in_blog": 0.11,
+   "recomputed_value": 0.11,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "disposition in 17 of 20",
+   "source_artifact": "results/tables/adversarial_pairs.csv",
+   "calculation": "int(T['adversarial_pairs'][T['adversarial_pairs'].variant=='argue_down'].flip.sum())",
+   "relevant_fields": "flip",
+   "value_in_blog": 17,
+   "recomputed_value": 17,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "In 16 of the 17 flips Jev went to **REVIEW**",
+   "source_artifact": "results/tables/adversarial_pairs.csv",
+   "calculation": "int(((T['adversarial_pairs'].variant=='argue_down') & T['adversarial_pairs'].flip & (T['adversarial_pairs'].choice_adv=='REVIEW')).sum())",
+   "relevant_fields": "choice_adv",
+   "value_in_blog": 16,
+   "recomputed_value": 16,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "lowered P(urgent) by 0.24 on average, and by up to 0.41",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['adversarial']['by_variant']['argue_down']['d_noul']",
+   "relevant_fields": "d_noul",
+   "value_in_blog": -0.24,
+   "recomputed_value": -0.244,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Brier score was 0.13 and   0.12, against 0.24",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['brier']",
+   "relevant_fields": "brier",
+   "value_in_blog": 0.13,
+   "recomputed_value": 0.1331,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "ECE was 0.20 in SCA and 0.14 in SAST",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['ece_10bin']",
+   "relevant_fields": "ece_10bin",
+   "value_in_blog": 0.2,
+   "recomputed_value": 0.2044,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "ECE was 0.20 in SCA and 0.14 in SAST",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sast']['jev']['urgency']['ece_10bin']",
+   "relevant_fields": "ece_10bin",
+   "value_in_blog": 0.14,
+   "recomputed_value": 0.1433,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "urgent by the rubric only 2 times out of 11",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "[b for b in P['sca']['jev']['urgency']['reliability'] if b['bin']=='0.6-0.7'][0]['observed']*11",
+   "relevant_fields": "reliability[0.6-0.7]",
+   "value_in_blog": 2,
+   "recomputed_value": 1.9997999999999998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "non-urgent SCA cases was   0.39",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['sca']['jev']['urgency']['mean_p_not_urgent']",
+   "relevant_fields": "mean_p_not_urgent",
+   "value_in_blog": 0.39,
+   "recomputed_value": 0.3929,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "averaged probability 0.66   while matching the rubric 52%",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['all']['jev_choice_selected_prob_vs_correct']['mean_selected_prob']",
+   "relevant_fields": "mean_selected_prob",
+   "value_in_blog": 0.66,
+   "recomputed_value": 0.6625,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(ECE 0.15)",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['all']['jev_choice_selected_prob_vs_correct']['ece_10bin']",
+   "relevant_fields": "ece_10bin",
+   "value_in_blog": 0.15,
+   "recomputed_value": 0.1472,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "kept 80%, and turning the whole state into a prose paragraph kept 85%",
+   "source_artifact": "results/tables/paraphrase_summary.csv",
+   "calculation": "float(T['paraphrase_summary'][T['paraphrase_summary'].variant=='prose'].agreement.mean())",
+   "relevant_fields": "agreement",
+   "value_in_blog": 0.85,
+   "recomputed_value": 0.8500000000000001,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "same disposition in 19 of 20 groups",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['repeat']['groups_with_identical_choice']",
+   "relevant_fields": "groups_with_identical_choice",
+   "value_in_blog": 19,
+   "recomputed_value": 19,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "varying by at most 0.05",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['repeat']['max_noul_range']",
+   "relevant_fields": "max_noul_range",
+   "value_in_blog": 0.05,
+   "recomputed_value": 0.05,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Input tokens | 1,087,741",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['input_tokens_total']",
+   "relevant_fields": "input_tokens_total",
+   "value_in_blog": 1087741,
+   "recomputed_value": 1087741,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Total cost | **$0.0457** |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['cost_total_usd']",
+   "relevant_fields": "cost_total_usd",
+   "value_in_blog": 0.0457,
+   "recomputed_value": 0.0457,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Cost per 1,000 decisions | $0.052 |",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['cost_per_1000_requests_usd']",
+   "relevant_fields": "cost_per_1000_requests_usd",
+   "value_in_blog": 0.052,
+   "recomputed_value": 0.052,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "median 192 ms, p90 280 ms, p99 471 ms, max 1.87 s",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['latency_ms']['p50']",
+   "relevant_fields": "latency_ms.p50",
+   "value_in_blog": 192,
+   "recomputed_value": 191.5,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "median 192 ms, p90 280 ms, p99 471 ms, max 1.87 s",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['latency_ms']['p99']",
+   "relevant_fields": "latency_ms.p99",
+   "value_in_blog": 471,
+   "recomputed_value": 470.968,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "$0.042 per million input tokens",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "M['run']['usd_per_million_input_tokens_observed']",
+   "relevant_fields": "usd_per_million_input_tokens_observed",
+   "value_in_blog": 0.042,
+   "recomputed_value": 0.042,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "p \u2248 1e-10 pooled",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "float(P['all']['mcnemar_jev_vs_b0']['p_value_sci'])",
+   "relevant_fields": "p_value_sci",
+   "value_in_blog": 1e-10,
+   "recomputed_value": 1.01e-10,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "95% of Score answers were within one level",
+   "source_artifact": "results/analysis/metrics.json",
+   "calculation": "P['all']['jev']['score']['within_1']",
+   "relevant_fields": "within_1",
+   "value_in_blog": 0.95,
+   "recomputed_value": 0.9464,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "49,998 of 50,000",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['n_ok']",
+   "relevant_fields": "n_ok",
+   "value_in_blog": 49998,
+   "recomputed_value": 49998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "2 failed on HTTP 520; 1 HTTP 503 succeeded on its retry",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['errors_by_status']['520']",
+   "relevant_fields": "errors_by_status",
+   "value_in_blog": 2,
+   "recomputed_value": 2,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**21.4 minutes** for the main session, 38.4 decisions per second",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['main_session']['wall_minutes']",
+   "relevant_fields": "main_session.wall_minutes",
+   "value_in_blog": 21.4,
+   "recomputed_value": 21.411033333333332,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "**21.4 minutes** for the main session, 38.4 decisions per second",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['main_session']['requests_per_second']",
+   "relevant_fields": "requests_per_second",
+   "value_in_blog": 38.4,
+   "recomputed_value": 38.37740977782483,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Input tokens | 62,025,468 |",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['input_tokens_total']",
+   "relevant_fields": "input_tokens_total",
+   "value_in_blog": 62025468,
+   "recomputed_value": 62025468,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Total cost | **$2.61**",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['cost_total_usd']",
+   "relevant_fields": "cost_total_usd",
+   "value_in_blog": 2.61,
+   "recomputed_value": 2.6050696560000004,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "median 194 ms, p99 436 ms",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['latency_ms']['p50']",
+   "relevant_fields": "latency_ms.p50",
+   "value_in_blog": 194,
+   "recomputed_value": 193.6,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "median 194 ms, p99 436 ms",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['latency_ms']['p99']",
+   "relevant_fields": "latency_ms.p99",
+   "value_in_blog": 436,
+   "recomputed_value": 436.3,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "`typesafe/jev-1.13-20260917` for all 49,998",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "S['model_snapshots']['typesafe/jev-1.13-20260917']",
+   "relevant_fields": "model_snapshots",
+   "value_in_blog": 49998,
+   "recomputed_value": 49998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "4.5% of findings urgent by the rubric (2,248 of 49,998)",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['n_urgent']",
+   "relevant_fields": "urgency.n_urgent",
+   "value_in_blog": 2248,
+   "recomputed_value": 2248,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "excellent (AUC 0.97)",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['auc']",
+   "relevant_fields": "urgency.auc",
+   "value_in_blog": 0.97,
+   "recomputed_value": 0.9682022274598946,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "flagged about 7,300 findings",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['recall@0.5'] * U['n_urgent'] / U['precision@0.5']",
+   "relevant_fields": "recall, precision, n_urgent",
+   "value_in_blog": 7300,
+   "recomputed_value": 7311.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "to catch 2,085 of the",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['recall@0.5'] * U['n_urgent']",
+   "relevant_fields": "recall@0.5 * n_urgent",
+   "value_in_blog": 2085,
+   "recomputed_value": 2085.0,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "recall 93%, precision only 29%",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['precision@0.5']",
+   "relevant_fields": "precision@0.5",
+   "value_in_blog": 0.29,
+   "recomputed_value": 0.28518670496512105,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "The Brier score, 0.090, was *worse* than simply predicting the base rate (0.043)",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['brier']",
+   "relevant_fields": "brier",
+   "value_in_blog": 0.09,
+   "recomputed_value": 0.08968245729829193,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "The Brier score, 0.090, was *worse* than simply predicting the base rate (0.043)",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['brier_base_rate']",
+   "relevant_fields": "brier_base_rate",
+   "value_in_blog": 0.043,
+   "recomputed_value": 0.042940235150107635,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "ECE on the 50k sample was 0.22",
+   "source_artifact": "results/analysis/scale_metrics.json",
+   "calculation": "U['ece_10bin']",
+   "relevant_fields": "ece_10bin",
+   "value_in_blog": 0.22,
+   "recomputed_value": 0.2228111124444978,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Jev 1.13 | **186 ms**",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['typesafe/jev-1.13']['latency_ms_p50']",
+   "relevant_fields": "latency_ms_p50",
+   "value_in_blog": 186,
+   "recomputed_value": 185.7,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| GPT-6 Sol | 2.53 s | 13.6x slower | $0.0034 | $170 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['openai/gpt-6-sol']['latency_ms_p50']",
+   "relevant_fields": "latency_ms_p50",
+   "value_in_blog": 2530,
+   "recomputed_value": 2527.4,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| GPT-6 Sol | 2.53 s | 13.6x slower | $0.0034 | $170 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['openai/gpt-6-sol']['latency_ratio_vs_jev_p50']",
+   "relevant_fields": "latency_ratio_vs_jev_p50",
+   "value_in_blog": 13.6,
+   "recomputed_value": 13.610123855681207,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| GPT-6 Sol | 2.53 s | 13.6x slower | $0.0034 | $170 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['openai/gpt-6-sol']['projected_cost_50k_usd']",
+   "relevant_fields": "projected_cost_50k_usd",
+   "value_in_blog": 170,
+   "recomputed_value": 170.255,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Claude Sonnet 5 | 2.59 s | 14.0x slower | $0.0043 | $215 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['anthropic/claude-sonnet-5']['latency_ratio_vs_jev_p50']",
+   "relevant_fields": "latency_ratio_vs_jev_p50",
+   "value_in_blog": 14.0,
+   "recomputed_value": 13.956381260096931,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Claude Sonnet 5 | 2.59 s | 14.0x slower | $0.0043 | $215 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['anthropic/claude-sonnet-5']['projected_cost_50k_usd']",
+   "relevant_fields": "projected_cost_50k_usd",
+   "value_in_blog": 215,
+   "recomputed_value": 215.10500000000002,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Gemini 3.8 Flash | 5.58 s | 30.1x slower | $0.0013 | $65 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['google/gemini-3.8-flash']['latency_ratio_vs_jev_p50']",
+   "relevant_fields": "latency_ratio_vs_jev_p50",
+   "value_in_blog": 30.1,
+   "recomputed_value": 30.064620355411957,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Gemini 3.8 Flash | 5.58 s | 30.1x slower | $0.0013 | $65 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['google/gemini-3.8-flash']['projected_cost_50k_usd']",
+   "relevant_fields": "projected_cost_50k_usd",
+   "value_in_blog": 65,
+   "recomputed_value": 64.5815625,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "| Jev 1.13 | **186 ms** | 1x | **$0.000052** | $2.60 |",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['typesafe/jev-1.13']['projected_cost_50k_usd']",
+   "relevant_fields": "projected_cost_50k_usd",
+   "value_in_blog": 2.6,
+   "recomputed_value": 2.5951275,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "All 160 answers were valid JSON",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "sum(m['valid_answers'] for m in FM.values())",
+   "relevant_fields": "valid_answers",
+   "value_in_blog": 160,
+   "recomputed_value": 160,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "took Jev 9.6 seconds in total and the frontier models 102 to 247 seconds",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['typesafe/jev-1.13']['sequential_run_time_s_40_cases']",
+   "relevant_fields": "sequential_run_time_s_40_cases",
+   "value_in_blog": 9.6,
+   "recomputed_value": 9.619,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "took Jev 9.6 seconds in total and the frontier models 102 to 247 seconds",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['google/gemini-3.8-flash']['sequential_run_time_s_40_cases']",
+   "relevant_fields": "sequential_run_time_s_40_cases",
+   "value_in_blog": 247,
+   "recomputed_value": 247.14829999999998,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Claude Sonnet 5 agreed with my rubric on 78% of dispositions, against 55% for Jev, 55% for Gemini, and 48% for GPT-6 Sol",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['anthropic/claude-sonnet-5']['agreement_descriptive_small_n']['disposition_acc']",
+   "relevant_fields": "disposition_acc",
+   "value_in_blog": 0.78,
+   "recomputed_value": 0.775,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Claude Sonnet 5 agreed with my rubric on 78% of dispositions, against 55% for Jev, 55% for Gemini, and 48% for GPT-6 Sol",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['typesafe/jev-1.13']['agreement_descriptive_small_n']['disposition_acc']",
+   "relevant_fields": "disposition_acc",
+   "value_in_blog": 0.55,
+   "recomputed_value": 0.55,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "Claude Sonnet 5 agreed with my rubric on 78% of dispositions, against 55% for Jev, 55% for Gemini, and 48% for GPT-6 Sol",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['openai/gpt-6-sol']['agreement_descriptive_small_n']['disposition_acc']",
+   "relevant_fields": "disposition_acc",
+   "value_in_blog": 0.475,
+   "recomputed_value": 0.475,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "cost 83 times as much",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "FM['anthropic/claude-sonnet-5']['cost_per_decision_usd'] / FM['typesafe/jev-1.13']['cost_per_decision_usd']",
+   "relevant_fields": "cost_per_decision_usd ratio",
+   "value_in_blog": 83,
+   "recomputed_value": 82.88802765952734,
+   "matches": true,
+   "text_found_in_blog": true
+  },
+  {
+   "claim": "(AUC 0.92 to 0.97)",
+   "source_artifact": "results/analysis/frontier_metrics.json",
+   "calculation": "min(m['agreement_descriptive_small_n']['urgency_auc'] for m in FM.values())",
+   "relevant_fields": "urgency_auc",
+   "value_in_blog": 0.92,
+   "recomputed_value": 0.9244791666666666,
+   "matches": true,
+   "text_found_in_blog": true
+  }
+ ]
+}
