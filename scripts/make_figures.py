@@ -126,7 +126,7 @@ fig.subplots_adjust(wspace=0.38)
 order = ["DEFER", "STANDARD", "ACCELERATED", "EMERGENCY", "REVIEW"]
 for ax, dom in zip(axes, ["sca", "sast"]):
     cm = pd.read_csv(TAB / f"confusion_{dom}_jev.csv", index_col=0).loc[order[:4], order]
-    norm = cm.div(cm.sum(1), axis=0).astype(float).fillna(0.0)
+    norm = cm.div(cm.sum(axis=1), axis=0).astype(float).fillna(0.0)
     ax.imshow(norm.to_numpy(), cmap=BLUES, vmin=0, vmax=1, aspect="auto")
     for i in range(cm.shape[0]):
         for j in range(cm.shape[1]):
